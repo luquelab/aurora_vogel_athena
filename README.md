@@ -1,18 +1,15 @@
-# Luque Lab project template
+# Aurora Vogel's Research Repository
 
-## WHAT
-This repository provides the default structure for projects in the Luque Lab.
+## Summary
+This repository contains the basis of the public facing webpage along with scripts, data, references, figures, and more.
 
-## WHO
-The template was originally concived by Antoni Luque based on recommendations from Noble PLoS Comp Biol 2009, Wilson et al PLoS Comp Biol 2017, and Briney "Data Management for Researches" (2015)
-
-## WHEN
+## Start Date
 This is an evolving repository
 Started: 2021-05-10
 
 End: ...
 
-## FILES & FOLDERS
+## Structure
 FOLDER: /bin
 --> This folder contains basic scripts and executable files.
 
