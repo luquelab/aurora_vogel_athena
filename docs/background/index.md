@@ -35,6 +35,7 @@ The area of the most elementary equilateral triangle contained on the hexagonal 
     $$S_0 = \frac{\sqrt{3}a^2}{4}$$
 </p>
 where $$a$$ is the distance between the centers of two adjacent hexagons within the hexagonal grid.
+
 _Proof._ $$\vec{a_1} \times \vec{a_2}$$ forms a parallelogram with lengths $$\|\vec{a_1}\|$$ and $$\|\vec{a_2}\|$$. Since the basis vectors form a 60$$\degree$$ angle and both vectors have the same length, their corresponding angles must be equivalent. 
 
 Given a triangles angles must sum to $$180\degree$$, we have $$\alpha = 60\degree$$.
