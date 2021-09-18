@@ -5,14 +5,9 @@ nav_order: 2
 ---
 
 ## Background
-Put lots
-of
-words
-in
-here
 
 ### Definition
-The **cross product** between two vectors $$\vec{a}$$ and $$\vec{b}$$ is defined by
+**The **cross product** between two vectors $$\vec{a}$$ and $$\vec{b}$$ is defined by
 <p align="center">
     $$ \vec{a} \times \vec{b} := ||\vec{a}|| ||\vec{b}||sin(\theta)\vec{n}$$
 </p>
@@ -28,7 +23,7 @@ In 3-dimensions this is equivalent to the determinant of vector $$\vec{a}$$ and 
     \end{vmatrix}$$
 </p>
 
-
+**
 ### Proposition
 The area of the most elementary equilateral triangle contained on the hexagonal grid is denoted as $$S_0$$ and given by
 <p align="center">
@@ -116,5 +111,3 @@ Define the **body-vector $$\vec{C_Q}$$** as the vector which connects a pentamer
 $$\begin{align*}
 \vec{C_Q} := h' \vec{a_1}' + k' \vec{a_2}'
 \end{align*}$$
-
-*test*
