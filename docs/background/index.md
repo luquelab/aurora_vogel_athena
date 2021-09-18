@@ -111,8 +111,10 @@ $$\begin{array}{||c c c c ||}
 It will be convenient to work with another pair of coordinates on our hexagonal lattice. Let $$\vec{a_1}'$$ and $$\vec{a_2}'$$ be vectors $$\vec{a_1}$$ and $$\vec{a_2}$$ rotated counter-clockwise by $$60^\circ$$.
 
 ### Definition
-Define the body-vector $$\vec{C_Q}$$ as the vector which connects a pentamer from one cap to the closest pentamer on the opposing cap
+Define the **body-vector $$\vec{C_Q}$$** as the vector which connects a pentamer from one cap to the closest pentamer on the opposing cap
 
 $$\begin{align*}
 \vec{C_Q} := h' \vec{a_1}' + k' \vec{a_2}'
 \end{align*}$$
+
+*test*
