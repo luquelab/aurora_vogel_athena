@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 <title>MathJax TeX Test Page</title>
