@@ -70,7 +70,7 @@ By the law of cosines we have
 $$\begin{align*}
     c_T^2 &= (ha)^2 + (ka)^2 - 2(ha)(ka)cos(120^\circ) \\
     &= a^2(h^2 + k^2 - 2hk(-\frac{1}{2})) \\
-    &= a^2(h^2 + k^2 + hk) \\
+    &= a^2(h^2 + k^2 + hk)
 \end{align*}$$
 
 
