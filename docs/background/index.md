@@ -69,7 +69,7 @@ $$\begin{align*}
     &= a^2(h^2 + k^2 - 2hk(-\frac{1}{2})) \\
     &= a^2(h^2 + k^2 + hk) \\
 \end{align*}$$
-Thus $T = \frac{c_T^2}{a^2} = h^2 + hk + k^2$.
+Thus $$T = \frac{c_T^2}{a^2} = h^2 + hk + k^2$$.
 
 
-**_Remark_** Although $S_0$ divides every equilateral triangle evenly, it is not necessarily the case that every equilateral triangle can be evenly broken into these base triangles.
+**_Remark_** Although $$S_0$$ divides every equilateral triangle evenly, it is not necessarily the case that every equilateral triangle can be evenly broken into these base triangles.
