@@ -98,7 +98,7 @@ There are three different elongated structures which we can construct: two-fold,
 $$\begin{array}{||c c c c ||}
  \hline
  \text{Axial symmetry} & \text{Symmetry number} & \text{Num of body} \Delta & \text{Types of body} \Delta \\
- \hline\hline
+ \hline
  5\text{-fold} & 10 & 10 & 1 \\ 
  \hline
  3\text{-fold} & 6 & 12 & 2 \\
