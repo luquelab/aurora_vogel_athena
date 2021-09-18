@@ -87,6 +87,31 @@ A $$P$$ number of a $$T$$-structure is defined as
 
 $$\begin{align*}
     P = h_0^2+h_0 k_0 + k_0^2
-\end{center}$$
+\end{align*}$$
 
 where $$h = h_0 f$$, $$k = k_0 f$$ and $$f = gcd(h,k)$$.
+
+
+## Elongated Structures
+There are three different elongated structures which we can construct: two-fold, three-fold, and five-folds. We can use the symmetry number of such structures to conclude how many different types of triangles must be present within the body. This is calculated by multiplying the axial symmetry by the symmetry of the caps. The 5-fold case has a symmetry number of $$5*2 = 10$$.
+
+$$\begin{array}{||c c c c ||}
+ \hline
+ \text{Axial symmetry & Symmetry number & Num of body } \Delta \text{& Types of body } \Delta \\ [0.5ex] 
+ \hline\hline
+ 5\text{-fold} & 10 & 10 & 1 \\ 
+ \hline
+ 3\text{-fold} & 6 & 12 & 2 \\
+ \hline
+ 2\text{-fold} & 4 & 12 & 3 \\
+ \hline
+\end{array}$$
+
+It will be convenient to work with another pair of coordinates on our hexagonal lattice. Let $$\vec{a_1}'$$ and $$\vec{a_2}'$$ be vectors $$\vec{a_1}$$ and $$\vec{a_2}$$ rotated counter-clockwise by $$60^\circ$$.
+
+### Definition
+Define the body-vector $$\vec{C_Q}$$ as the vector which connects a pentamer from one cap to the closest pentamer on the opposing cap
+
+$$\begin{align*}
+\vec{C_Q} := h' \vec{a_1}' + k' \vec{a_2}'
+\end{align*}$$
