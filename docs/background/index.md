@@ -7,28 +7,27 @@ nav_order: 2
 ## Background
 
 ### Definition
->> The **cross product** between two vectors $$\vec{a}$$ and $$\vec{b}$$ is defined by
->>
->> $$ \vec{a} \times \vec{b} := ||\vec{a}|| ||\vec{b}||sin(\theta)\vec{n}$$
->>
->> where $$\theta$$ is the angle between $$\vec{a}$$ and $$\vec{b}$$ in the plane they lie in and $$\vec{n}$$ is a unit vector perpendicular to this plane.
->>
->> In 3-dimensions this is equivalent to the determinant of vector $$\vec{a}$$ and $$\vec{b}$$:
->>
->> $$ \vec{a}\times\vec{b} = 
->> \begin{vmatrix}
->> \vec{i} & \vec{j} & \vec{k} \\
->> x_1 & y_1 & z_1 \\
->> x_2 & y_2 & z_2
->> \end{vmatrix}$$
+>
+> $$ \vec{a} \times \vec{b} := ||\vec{a}|| ||\vec{b}||sin(\theta)\vec{n}$$
+>
+> where $$\theta$$ is the angle between $$\vec{a}$$ and $$\vec{b}$$ in the plane they lie in and $$\vec{n}$$ is a unit vector perpendicular to this plane.
+>
+> In 3-dimensions this is equivalent to the determinant of vector $$\vec{a}$$ and $$\vec{b}$$:
+>
+> $$ \vec{a}\times\vec{b} = 
+> \begin{vmatrix}
+> \vec{i} & \vec{j} & \vec{k} \\
+> x_1 & y_1 & z_1 \\
+> x_2 & y_2 & z_2
+> \end{vmatrix}$$
 
 
 ### Proposition
-The area of the most elementary equilateral triangle contained on the hexagonal grid is denoted as $$S_0$$ and given by
-<p align="center">
-    $$S_0 = \frac{\sqrt{3}a^2}{4}$$
-</p>
-where $$a$$ is the distance between the centers of two adjacent hexagons within the hexagonal grid.
+> The area of the most elementary equilateral triangle contained on the hexagonal grid is denoted as $$S_0$$ and given by
+>
+> $$S_0 = \frac{\sqrt{3}a^2}{4}$$
+>
+> where $$a$$ is the distance between the centers of two adjacent hexagons within the hexagonal grid.
 
 
 _Proof._ $$\vec{a_1} \times \vec{a_2}$$ forms a parallelogram with lengths $$\|\vec{a_1}\|$$ and $$\|\vec{a_2}\|$$. Since the basis vectors form a 60$$^\circ$$ angle and both vectors have the same length, their corresponding angles must be equivalent. 
@@ -36,9 +35,9 @@ _Proof._ $$\vec{a_1} \times \vec{a_2}$$ forms a parallelogram with lengths $$\|\
 Given a triangles angles must sum to $$180^\circ$$, we have $$\alpha = 60^\circ$$.
 Thus $$\frac{\vec{a_1} \times \vec{a_2}}{2}$$ gives the area for an equilateral triangle with side length $$a$$. 
 Since
-<p align="center">
-    $$\|\frac{\vec{a_1} \times \vec{a_2}}{2}\| = \|\frac{\|\vec{a_1}\|\|\vec{a_2}\|sin(60^\circ)\vec{n}}{2}\| = \|\frac{a^2\sqrt{3}\vec{n}}{4}\| = \frac{\sqrt{3} a^2}{4}$$
-</p>
+
+$$\|\frac{\vec{a_1} \times \vec{a_2}}{2}\| = \|\frac{\|\vec{a_1}\|\|\vec{a_2}\|sin(60^\circ)\vec{n}}{2}\| = \|\frac{a^2\sqrt{3}\vec{n}}{4}\| = \frac{\sqrt{3} a^2}{4}$$
+
 we conclude $$S_0 = \frac{\sqrt{3} a^2}{4}$$. 
 $$\hspace{720px} \blacksquare$$
 
@@ -47,10 +46,8 @@ We can calculate the area of any equilateral triangle contained in the hexagonal
 
 
 ### Theorem
-The $$T$$-number of any triangle is given by the formula
-<p align="center">
-    $T = h^2 + hk + k^2$
-</p>
+>The $$T$$-number of any triangle is given by the formula
+>$T = h^2 + hk + k^2$
 
 
 _Proof._ Assume some vector $$\vec{C_T}=(h,k)$$. Denote it's length by $$\|C_T\|$$. This will be the length of the equilateral triangle we consider.
@@ -105,8 +102,8 @@ $$\begin{array}{||c c c c ||}
 It will be convenient to work with another pair of coordinates on our hexagonal lattice. Let $$\vec{a_1}'$$ and $$\vec{a_2}'$$ be vectors $$\vec{a_1}$$ and $$\vec{a_2}$$ rotated counter-clockwise by $$60^\circ$$.
 
 ### Definition
-Define the **body-vector $$\vec{C_Q}$$** as the vector which connects a pentamer from one cap to the closest pentamer on the opposing cap
+> Define the **body-vector $$\vec{C_Q}$$** as the vector which connects a pentamer from one cap to the closest pentamer on the opposing cap
 
-$$\begin{align*}
-\vec{C_Q} := h' \vec{a_1}' + k' \vec{a_2}'
-\end{align*}$$
+> $$\begin{align*}
+> \vec{C_Q} := h' \vec{a_1}' + k' \vec{a_2}'
+> \end{align*}$$
