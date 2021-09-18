@@ -79,7 +79,7 @@ $$\begin{align*}
 
 Thus $$T = \frac{c_T^2}{a^2} = h^2 + hk + k^2$$. 
 <p align="right">
-    $$\blacksquare$$
+    $$\blacksquare$$ things here
 </p>
 
 
