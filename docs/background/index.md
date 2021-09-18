@@ -58,17 +58,17 @@ The $$T$$-number of any triangle is given by the formula
 </p>
 
 
-_Proof._ Assume some vector $$\vec{C_T}=(h,k)$$. Denote it's length by $\|C_T\|$. This will be the length of the equilateral triangle we consider.
+_Proof._ Assume some vector $$\vec{C_T}=(h,k)$$. Denote it's length by $$\|C_T\|$$. This will be the length of the equilateral triangle we consider.
 Notice that
 <p align="center">
     $$T = \|\frac{\vec{C_T}\times\vec{C_T}}{2 }\|\frac{1}{S_0} = \frac{\frac{\sqrt{3}}{4} c_T^2}{\frac{\sqrt{3}}{4}a^2} = \frac{c_T^2}{a^2}$$
 </p>
 By the law of cosines we have
-\begin{align*}
+$$\begin{align*}
     c_T^2 &= (ha)^2 + (ka)^2 - 2(ha)(ka)cos(120^\circ) \\
     &= a^2(h^2 + k^2 - 2hk(-\frac{1}{2})) \\
     &= a^2(h^2 + k^2 + hk) \\
-\end{align*}
+\end{align*}$$
 Thus $T = \frac{c_T^2}{a^2} = h^2 + hk + k^2$.
 
 
