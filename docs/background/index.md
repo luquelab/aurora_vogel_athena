@@ -34,4 +34,4 @@ The area of the most elementary equilateral triangle contained on the hexagonal 
 <p align="center">
     $$S_0 = \frac{\sqrt{3}a^2}{4}$$
 </p> 
-    where $$a$$ is the distance between the centers of two adjacent hexagons within the hexagonal grid.
+where $$a$$ is the distance between the centers of two adjacent hexagons within the hexagonal grid.
