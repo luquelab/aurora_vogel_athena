@@ -14,7 +14,7 @@ here
 # Definition
 The **cross product** between two vectors $$\vec{a}$$ and $$\vec{b}$$ is defined by
 <p align="center">
-    $$ \vec{a} \times \vec{b} := ||\vec{a}||||b||sin(\theta)\vec{n}
+    $$ \vec{a} \times \vec{b} := ||\vec{a}||||b||sin(\theta)\vec{n}$$
 </p>
 where $$\theta$$ is the angle between $$\vec{a}$$ and $$\vec{b}$$ in the plane they lie in and $$\vec{n}$$ is a unit vector perpendicular to this plane.
 
