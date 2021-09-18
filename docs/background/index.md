@@ -78,9 +78,7 @@ $$\begin{align*}
 
 
 Thus $$T = \frac{c_T^2}{a^2} = h^2 + hk + k^2$$. 
-<p align="right">
-    things here $$\blacksquare$$ things here
-</p>
+$$\hspace{500px} \blacksquare$$
 
 
 **_Remark_** Although $$S_0$$ divides every equilateral triangle evenly, it is not necessarily the case that every equilateral triangle can be evenly broken into these base triangles.
