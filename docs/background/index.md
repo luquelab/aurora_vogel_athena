@@ -7,7 +7,7 @@ nav_order: 2
 ## Background
 
 ### Definition
-**The **cross product** between two vectors $$\vec{a}$$ and $$\vec{b}$$ is defined by
+The **cross product** between two vectors $$\vec{a}$$ and $$\vec{b}$$ is defined by
 <p align="center">
     $$ \vec{a} \times \vec{b} := ||\vec{a}|| ||\vec{b}||sin(\theta)\vec{n}$$
 </p>
@@ -23,7 +23,7 @@ In 3-dimensions this is equivalent to the determinant of vector $$\vec{a}$$ and 
     \end{vmatrix}$$
 </p>
 
-**
+
 ### Proposition
 The area of the most elementary equilateral triangle contained on the hexagonal grid is denoted as $$S_0$$ and given by
 <p align="center">
