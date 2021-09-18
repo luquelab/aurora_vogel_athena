@@ -47,7 +47,3 @@ Since
 </p>
 we conclude $$S_0 = \frac{\sqrt{3} a^2}{4}$$.
 
-\begin{tikzpicture}
-    \draw (0,0) circle (1in);
-\end{tikzpicture}
-
