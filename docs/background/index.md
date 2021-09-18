@@ -45,7 +45,10 @@ Since
 <p align="center">
     $$\|\frac{\vec{a_1} \times \vec{a_2}}{2}\| = \|\frac{\|\vec{a_1}\|\|\vec{a_2}\|sin(60^\circ)\vec{n}}{2}\| = \|\frac{a^2\sqrt{3}\vec{n}}{4}\| = \frac{\sqrt{3} a^2}{4}$$
 </p>
-we conclude $$S_0 = \frac{\sqrt{3} a^2}{4}$$. $$\blacksquare$$
+we conclude $$S_0 = \frac{\sqrt{3} a^2}{4}$$. 
+<p align="right">
+    $$\blacksquare$$
+</p>
 
 
 We can calculate the area of any equilateral triangle contained in the hexagonal grid as the number of base triangles contained. We call this the $$T$$-number of such a triangle.
@@ -74,7 +77,10 @@ $$\begin{align*}
 \end{align*}$$
 
 
-Thus $$T = \frac{c_T^2}{a^2} = h^2 + hk + k^2$$. $$\blacksquare$$
+Thus $$T = \frac{c_T^2}{a^2} = h^2 + hk + k^2$$. 
+<p align="right">
+    $$\blacksquare$$
+</p>
 
 
 **_Remark_** Although $$S_0$$ divides every equilateral triangle evenly, it is not necessarily the case that every equilateral triangle can be evenly broken into these base triangles.
