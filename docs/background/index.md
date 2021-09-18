@@ -46,4 +46,3 @@ Since
     $$\|\frac{\vec{a_1} \times \vec{a_2}}{2}\| = \|\frac{\|\vec{a_1}\|\|\vec{a_2}\|sin(60^\circ)\vec{n}}{2}\| = \|\frac{a^2\sqrt{3}\vec{n}}{4}\| = \frac{\sqrt{3} a^2}{4}$$
 </p>
 we conclude $$S_0 = \frac{\sqrt{3} a^2}{4}$$.
-
