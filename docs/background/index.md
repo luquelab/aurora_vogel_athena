@@ -14,8 +14,8 @@ here
 # Definition
 The cross product between two vectors $$\vec{a}$$ and $$\vec{b}$$ is defined by
 \(
-\begin{center}
-$$\vec{a}\times $$
-\end{center}
+<p align="center">
+    // Your content
+</p>
 \)
 
