@@ -17,8 +17,6 @@ The `head.html` file from the original template has been modified in `/docs/_inc
 
 Math equation using MathJax: $$5+5$$
 
-<object data="test_header.md" width="1000" height="1000" type='application/md'></object>
-
 $$
 \begin{align*}
   & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
