@@ -46,9 +46,7 @@ Since
     $$\|\frac{\vec{a_1} \times \vec{a_2}}{2}\| = \|\frac{\|\vec{a_1}\|\|\vec{a_2}\|sin(60^\circ)\vec{n}}{2}\| = \|\frac{a^2\sqrt{3}\vec{n}}{4}\| = \frac{\sqrt{3} a^2}{4}$$
 </p>
 we conclude $$S_0 = \frac{\sqrt{3} a^2}{4}$$. 
-<p align="right">
-    $$\blacksquare$$
-</p>
+$$\hspace{1000px} \blacksquare$$
 
 
 We can calculate the area of any equilateral triangle contained in the hexagonal grid as the number of base triangles contained. We call this the $$T$$-number of such a triangle.
@@ -63,9 +61,8 @@ The $$T$$-number of any triangle is given by the formula
 
 _Proof._ Assume some vector $$\vec{C_T}=(h,k)$$. Denote it's length by $$\|C_T\|$$. This will be the length of the equilateral triangle we consider.
 Notice that
-<p align="center">
-    $$T = \|\frac{\vec{C_T}\times\vec{C_T}}{2 }\|\frac{1}{S_0} = \frac{\frac{\sqrt{3}}{4} c_T^2}{\frac{\sqrt{3}}{4}a^2} = \frac{c_T^2}{a^2}$$
-</p>
+
+$$T = \|\frac{\vec{C_T}\times\vec{C_T}}{2 }\|\frac{1}{S_0} = \frac{\frac{\sqrt{3}}{4} c_T^2}{\frac{\sqrt{3}}{4}a^2} = \frac{c_T^2}{a^2}$$
 
 By the law of cosines we have
 
@@ -78,7 +75,7 @@ $$\begin{align*}
 
 
 Thus $$T = \frac{c_T^2}{a^2} = h^2 + hk + k^2$$. 
-$$\hspace{500px} \blacksquare$$
+$$\hspace{1000px} \blacksquare$$
 
 
 **_Remark_** Although $$S_0$$ divides every equilateral triangle evenly, it is not necessarily the case that every equilateral triangle can be evenly broken into these base triangles.
