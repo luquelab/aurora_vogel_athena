@@ -33,4 +33,5 @@ In 3-dimensions this is equivalent to the determinant of vector $$\vec{a}$$ and 
 The area of the most elementary equilateral triangle contained on the hexagonal grid is denoted as $$S_0$$ and given by
 <p align="center">
     $$S_0 = \frac{\sqrt{3}a^2}{4}$$
-<\p> where $$a$$ is the distance between the centers of two adjacent hexagons within the hexagonal grid.
+<\p> 
+    where $$a$$ is the distance between the centers of two adjacent hexagons within the hexagonal grid.
