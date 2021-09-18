@@ -37,13 +37,13 @@ The area of the most elementary equilateral triangle contained on the hexagonal 
 where $$a$$ is the distance between the centers of two adjacent hexagons within the hexagonal grid.
 
 
-_Proof._ $$\vec{a_1} \times \vec{a_2}$$ forms a parallelogram with lengths $$\|\vec{a_1}\|$$ and $$\|\vec{a_2}\|$$. Since the basis vectors form a 60$$\degree$$ angle and both vectors have the same length, their corresponding angles must be equivalent. 
+_Proof._ $$\vec{a_1} \times \vec{a_2}$$ forms a parallelogram with lengths $$\|\vec{a_1}\|$$ and $$\|\vec{a_2}\|$$. Since the basis vectors form a 60$$^\circ$$ angle and both vectors have the same length, their corresponding angles must be equivalent. 
 
-Given a triangles angles must sum to $$180\degree$$, we have $$\alpha = 60\degree$$.
+Given a triangles angles must sum to $$180^\circ$$, we have $$\alpha = 60^\circ$$.
 Thus $$\frac{\vec{a_1} \times \vec{a_2}}{2}$$ gives the area for an equilateral triangle with side length $$a$$. 
 Since
 <p align="center">
-    $$\|\frac{\vec{a_1} \times \vec{a_2}}{2}\| = \|\frac{\|\vec{a_1}\|\|\vec{a_2}\|sin(60\degree)\vec{n}}{2}\| = \|\frac{a^2\sqrt{3}\vec{n}}{4}\| = \frac{\sqrt{3} a^2}{4}$$
+    $$\|\frac{\vec{a_1} \times \vec{a_2}}{2}\| = \|\frac{\|\vec{a_1}\|\|\vec{a_2}\|sin(60^\circ)\vec{n}}{2}\| = \|\frac{a^2\sqrt{3}\vec{n}}{4}\| = \frac{\sqrt{3} a^2}{4}$$
 </p>
 we conclude $$S_0 = \frac{\sqrt{3} a^2}{4}$$.
 
