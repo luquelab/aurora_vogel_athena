@@ -18,11 +18,10 @@ The **cross product** between two vectors $$\vec{a}$$ and $$\vec{b}$$ is defined
 </p>
 where $$\theta$$ is the angle between $$\vec{a}$$ and $$\vec{b}$$ in the plane they lie in and $$\vec{n}$$ is a unit vector perpendicular to this plane.
 
-The **cross product** in 3-dimensions is equivalent to the determinant of
-$$\left
+The **cross product** in 3-dimensions is equivalent to the determinant of vector $$\vec{a}$$ and $$\vec{b}$$
+$$ \vec{a}\times\vec{b} = 
 \begin{vmatrix}
-1 & 3 & 2 & -6 \\ 
-1 & 2 & -2 & -5 \\ 
-2 & 4 & -2 & -9 \\ 
-2 & 4 & -6 & -9
-\end{vmatrix}\right$$
+\vec{i} & \vec{j} & \vec{k} \\
+x_1 & y_1 & z_1 \\
+x_2 & y_2 & z_2
+\end{vmatrix}$$
