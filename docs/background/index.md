@@ -7,12 +7,12 @@ nav_order: 2
 ## Background
 
 ### Definition
-The **cross product** between two vectors $$\vec{a}$$ and $$\vec{b}$$ is defined by
+>> The **cross product** between two vectors $$\vec{a}$$ and $$\vec{b}$$ is defined by
 <p align="center">
     $$ \vec{a} \times \vec{b} := ||\vec{a}|| ||\vec{b}||sin(\theta)\vec{n}$$
 </p>
 where $$\theta$$ is the angle between $$\vec{a}$$ and $$\vec{b}$$ in the plane they lie in and $$\vec{n}$$ is a unit vector perpendicular to this plane.
-
+>>
 In 3-dimensions this is equivalent to the determinant of vector $$\vec{a}$$ and $$\vec{b}$$:
 <p align="center">
     $$ \vec{a}\times\vec{b} = 
