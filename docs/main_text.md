@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Write the (running) project title for publication here
 
 ## Authors involved in the project: First-1 Last-1; Frist-2 Last-2, ...
