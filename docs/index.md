@@ -5,7 +5,7 @@ nav_order: 1
 ---
 
 ## Home
-My name is Aurora Vogel and I am an Applied Maths M.S. Student as SDSU. I am a part of the [Luque Lab]({% https://www.luquelab.com/ %}) which conducts research centered around the physical structure and ecological properties of viruses. 
+My name is Aurora Vogel and I am an Applied Maths M.S. Student as SDSU. I am a part of the [Luque Lab](https://www.luquelab.com/) which conducts research centered around the physical structure and ecological properties of viruses. My research interests are particularly in the mathematical underpinnings of 
 
 
 This is your entry page on the public website associated with your project. State the goal of the project, status, collaborators, and any basic information.
