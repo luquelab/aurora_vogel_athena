@@ -1,5 +1,5 @@
 ---
 layout: default
-title: Elongated Structures
+title: Conical Structures
 nav_order: 3
 ---
