@@ -72,7 +72,7 @@ $$\hspace{720px} \blacksquare$$
 **_Remark_** Although $$S_0$$ divides every equilateral triangle evenly, it is not necessarily the case that every equilateral triangle can be evenly broken into these base triangles.
 
 
-Each triangle's $$T$$-number is solely determined by the length of $$\vec{C_T}$$ since each triangle is equilateral. Thus it is no surprise that a $$T$$-number is not unique to a particular $$(h,k)$$. An example is $$(7,0)$$ and $(5,3)$ which share $$T=49$$. In order to classify triangles like these which share certain geometrical properties (base triangle size),  Caspar and Klug proposed a reorganization of the $$T$$-structures in terms of classes $$P$$ defined as follows:
+Each triangle's $$T$$-number is solely determined by the length of $$\vec{C_T}$$ since each triangle is equilateral. Thus it is no surprise that a $$T$$-number is not unique to a particular $$(h,k)$$. An example is $$(7,0)$$ and $$(5,3)$$ which share $$T=49$$. In order to classify triangles like these which share certain geometrical properties (base triangle size),  Caspar and Klug proposed a reorganization of the $$T$$-structures in terms of classes $$P$$ defined as follows:
 ### Definition
 A $$P$$ number of a $$T$$-structure is defined as
 
