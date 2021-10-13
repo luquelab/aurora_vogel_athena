@@ -105,7 +105,23 @@ It will be convenient to work with another pair of coordinates on our hexagonal 
 We need a way to convert hexagonal coordinates to cartesian coordinates in order to interpret the cross product of the vectors in hexagonal coordinates. Thus we have the following formulas.
 
 ### Proposition
-> $$(h\vec{a_1},k\vec{a_2})_H$$ is equivalent to $$(h+k\cos(\frac{\pi}{3}),k\sin (\frac{\pi}{3}))_C$$. Similarly, $$(h'\vec{a_1}',k'\vec{a_2}')_H$$ is equivalent to  $$(h'\cos(\frac{2\pi}{3})+k'cos(\frac{2\pi}{3}),h'\sin(\frac{2\pi}{3})+k'\sin(\frac{2\pi}{3}))_C$$. 
+> $$(h\vec{a_1},k\vec{a_2})_H$$ is equivalent to $$(h+k\cos(\frac{\pi}{3}),k\sin (\frac{\pi}{3}))_C$$. Similarly, $$(h'\vec{a_1}',k'\vec{a_2}')_H$$ is equivalent to  $$(h'\cos(\frac{2\pi}{3})+k'cos(\frac{2\pi}{3}),h'\sin(\frac{2\pi}{3})+k'\sin(\frac{2\pi}{3}))_C$$.
+
+_Proof._ Consider $$(h\vec{a_1},k\vec{a_2})_H$$. Let us treat the $$X$$-axis as aligned with the $$\vec{a_1}$$ axis. Thus an $$h$$ step in the $$\vec{a_1}$$ direction gives an equivalent value: $$ha$$. A $$k$$ step in the $$\vec{a_2}$$ direction forms a right triangle with line created by the projection of $$\vec{a_2}$$ onto the $$X$$-axis. Thus we have
+$$
+\begin{align*}
+\cos(\frac{\pi}{3})=\frac{x}{k} \implies x=\frac{k}{2}
+\sin(\frac{\pi}{3})=\frac{y}{k} \implies y=\frac{\sqrt{3}k}{2}
+\end{align*}
+$$
+where $$x,y$$ correspond to the legs of the right triangle which align with the $$X$$ and $$Y$$ axes. Thus we have in total that
+$$
+\begin{align*}
+(h\vec{a_1},k\vec{a_2})_H=(h+k\cos(\frac{\pi}{3}),k\sin (\frac{\pi}{3}))_C
+\end{align*}
+$$
+
+
 ### Definition
 > Define the **body-vector $$\vec{C_Q}$$** as the vector which connects a pentamer from one cap to the closest pentamer on the opposing cap
 > $$\vec{C_Q} := h' \vec{a_1}' + k' \vec{a_2}'$$
