@@ -104,7 +104,8 @@ It will be convenient to work with another pair of coordinates on our hexagonal 
 
 ### Definition
 > Define the **body-vector $$\vec{C_Q}$$** as the vector which connects a pentamer from one cap to the closest pentamer on the opposing cap
-
-> $$\begin{align*}
 > \vec{C_Q} := h' \vec{a_1}' + k' \vec{a_2}'
-> \end{align*}$$
+We can then define $$T_1$$ as the area of the body triangle (made up by sides \(\vec{C_Q}\) and \(\vec{C_T}) divided by the area of the basic triangles (so it is analogous to the $$T$$-number but for the body triangle). We can now prove the following formula for \(T_1\).
+
+_Proof._ Assume vector $$\vec{C_T}=(h,k)$$ and \(vec{C_Q}=(h',k')\).
+a
