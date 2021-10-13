@@ -102,10 +102,13 @@ $$\begin{array}{||c c c c ||}
 
 It will be convenient to work with another pair of coordinates on our hexagonal lattice. Let $$\vec{a_1}'$$ and $$\vec{a_2}'$$ be vectors $$\vec{a_1}$$ and $$\vec{a_2}$$ rotated counter-clockwise by $$60^\circ$$.
 
+We need a way to convert hexagonal coordinates to cartesian coordinates in order to interpret the cross product of the vectors in hexagonal coordinates. Thus we have the following formulas.
+
+### Proposition
+> $$(h\vec{a_1},k\vec{a_2})_H$$ is equivalent to $$(h+k\cos(\frac{\pi}{3}),k\sin (\frac{\pi}{3}))_C$$. Similarly, $$(h'\vec{a_1}',k'\vec{a_2}')_H$$ is equivalent to  $$(h'\cos(\frac{2\pi}{3})+k'cos(\frac{2\pi}{3}),h'\sin(\frac{2\pi}{3})+k'\sin(\frac{2\pi}{3}))_C$$. 
 ### Definition
 > Define the **body-vector $$\vec{C_Q}$$** as the vector which connects a pentamer from one cap to the closest pentamer on the opposing cap
-> \vec{C_Q} := h' \vec{a_1}' + k' \vec{a_2}'
-We can then define $$T_1$$ as the area of the body triangle (made up by sides \(\vec{C_Q}\) and \(\vec{C_T}) divided by the area of the basic triangles (so it is analogous to the $$T$$-number but for the body triangle). We can now prove the following formula for \(T_1\).
+> $$\vec{C_Q} := h' \vec{a_1}' + k' \vec{a_2}'$$
+We can then define $$T_1$$ as the area of the body triangle (made up by sides $$\vec{C_Q}$$ and $$\vec{C_T}$$ divided by the area of the basic triangles (so it is analogous to the $$T$$-number but for the body triangle). We can now prove the following formula for $$T_1$$.
 
-_Proof._ Assume vector $$\vec{C_T}=(h,k)$$ and \(vec{C_Q}=(h',k')\).
-a
+_Proof._ Assume vector $$\vec{C_T}=(h,k)$$ and $$vec{C_Q}=(h',k')$$. 
