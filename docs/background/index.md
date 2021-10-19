@@ -105,18 +105,18 @@ It will be convenient to work with another pair of coordinates on our hexagonal 
 We need a way to convert hexagonal coordinates to cartesian coordinates in order to interpret the cross product of the vectors in hexagonal coordinates. Thus we have the following formulas.
 
 ### Proposition
-> $$(h\vec{a_1},k\vec{a_2})_H=(h+k\cos(\frac{\pi}{3}),k\sin (\frac{\pi}{3}))_C$$ 
+> $$(h\vec{a_1},k\vec{a_2})_H=(h+\frac{k}{2},\frac{k\sqrt{3}}{2})_C$$ 
 > 
 > and similarly 
 > 
 > $$(h'\vec{a_1}',k'\vec{a_2}')_H=(h'\cos(\frac{2\pi}{3})+k'cos(\frac{2\pi}{3}),h'\sin(\frac{2\pi}{3})+k'\sin(\frac{2\pi}{3}))_C$$.
 
-_Proof._ Consider $$(h\vec{a_1},k\vec{a_2})_H$$. Let us treat the $$X$$-axis as aligned with the $$\vec{a_1}$$ axis. Thus an $$h$$ step in the $$\vec{a_1}$$ direction gives an equivalent value: $$ha$$. A $$k$$ step in the $$\vec{a_2}$$ direction forms a right triangle with line created by the projection of $$\vec{a_2}$$ onto the $$X$$-axis. Thus we have
+_Proof._ Consider $$(h\vec{a_1},k\vec{a_2})_H$$. Let us treat the $$X$$-axis as aligned with the $$\vec{a_1}$$ axis. Thus an $$h$$ step in the $$\vec{a_1}$$ direction (i.e. $$(h,0)_H$$) gives an equivalent value: $$(ha,0)_C$$. A $$k$$ step in the $$\vec{a_2}$$ direction (i.e. $$(0,K)_H$$) forms a right triangle with the line created by the projection of $$\vec{a_2}$$ onto the $$X$$-axis. Thus we have an additional $$X$$-component: $$(k \cos(\frac{\pi}{3}),0)_C $$. Our sole $$Y$$ component is $$(0,k\sin(\frac{\sqrt{3}}{2}))_C$$, and so in totality we have
+
 
 $$
 \begin{align*}
-\cos(\frac{\pi}{3})=\frac{x}{k} \implies x=\frac{k}{2} \\
-\sin(\frac{\pi}{3})=\frac{y}{k} \implies y=\frac{\sqrt{3}k}{2}
+(h,k)_H = (h+\frac{k}{2},k+\frac{\sqrt{3}}{2})._
 \end{align*}
 $$
 
