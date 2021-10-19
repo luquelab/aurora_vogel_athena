@@ -109,7 +109,7 @@ We need a way to convert hexagonal coordinates to cartesian coordinates in order
 > 
 > and similarly 
 > 
-> $$(h'\vec{a_1}',k'\vec{a_2}')_{H_0}=(h'\cos(\frac{2\pi}{3})+k'cos(\frac{2\pi}{3}),h'\sin(\frac{2\pi}{3})+k'\sin(\frac{2\pi}{3}))_C$$.
+> $$(h'\vec{a_1}',k'\vec{a_2}')_{H_0}=(\frac{h'}{2}+\frac{-k'}{2},\frac{(h'+k')\sqrt{3}}{2})_C$$.
 
 _Proof._ Consider $$(h,k)_{H_0}$$. Let us treat the $$X$$-axis as aligned with the $$\vec{a_1}$$ axis. Thus an $$h$$ step in the $$\vec{a_1}$$ direction (i.e. $$(h,0)_{H_0}$$) gives an equivalent value: $$(ha,0)_C$$. A $$k$$ step in the $$\vec{a_2}$$ direction (i.e. $$(0,K)_{H_0}$$) forms a right triangle with the line created by the projection of $$\vec{a_2}$$ onto the $$X$$-axis. Thus we have an additional $$X$$-component: $$(k \cos(\frac{\pi}{3}),0)_C $$. Our sole $$Y$$ component is $$(0,k\sin(\frac{\sqrt{3}}{2}))_C$$, and so in totality we have
 
