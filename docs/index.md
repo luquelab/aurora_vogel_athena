@@ -15,7 +15,8 @@ My primary objective is to adapt the theory of capsid geometries to conical caps
 **How is it done today?**
 
 Currently the theory of elongated capsids only includes hexagonal lattices, while there is no solid theory for generating conical structures. Previous attempts involved using the CK framework and have failed to capture known examples.
-What is new in your approach?
+
+**What is new in your approach?**
 
 A theory of conical capsids, separate from CK, has not been attempted. My approach will involve assigning _T_-numbers, $$T_{small}$$ and $$T_{large}$$, for each cap of the capsid, where our working hypothesis is that the $$T_{small}$$ and $$T_{large}$$ belong to the same _P_-class. The mathematical theory behind elongated viral structures assumes a hexagonal lattice. Exchanging the hexagonal lattice for one of the additional Archimedean lattices. 
 
