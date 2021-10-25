@@ -7,7 +7,7 @@ nav_order: 1
 ![myimg](images/Website_Pic.jpg){: width="200px" style="float:left; padding-right:10px" }
 My name is Aurora Vogel and I am an Applied Maths M.S. Student as SDSU. I am a member of the [Luque Lab](https://www.luquelab.com/) which conducts research centered around the structural and ecological properties of viruses. My research interests include the mathematical underpinnings of capsid structures. My current goals include expanding the mathematical foundations of elongated and conical capsid structures of viruses alongside creating 3D models of said structures. Currently, I am in the process of formally writing out the maths behind the icosahedral, elongated, and conical structures.
 
-## Hellmeier Catechism
+## Heilmeier Catechism
 **What are you trying to do?**
 
 My primary objective is to adapt the theory of capsid geometries to conical capsids. On the way, I will be building upon the current theory of elongated capsid geometries to include the recently discovered icosahedral lattices (Luque and Reguera, 2010; Twarock and Luque, 2019).
