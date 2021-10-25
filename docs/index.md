@@ -17,7 +17,7 @@ My primary objective is to adapt the theory of capsid geometries to conical caps
 Currently the theory of elongated capsids only includes hexagonal lattices, while there is no solid theory for generating conical structures. Previous attempts involved using the CK framework and have failed to capture known examples.
 What is new in your approach?
 
-A theory of conical capsids, separate from CK, has not been attempted. My approach will involve assigning _T_-numbers, $$T_small$$ and $$T_large$$, for each cap of the capsid, where our working hypothesis is that the $$T_small$$ and $$T_large$$ belong to the same _P_-class. The mathematical theory behind elongated viral structures assumes a hexagonal lattice. Exchanging the hexagonal lattice for one of the additional Archimedean lattices. 
+A theory of conical capsids, separate from CK, has not been attempted. My approach will involve assigning _T_-numbers, $$T_{small}$$ and $$T_{large}$$, for each cap of the capsid, where our working hypothesis is that the $$T_{small}$$ and $$T_{large}$$ belong to the same _P_-class. The mathematical theory behind elongated viral structures assumes a hexagonal lattice. Exchanging the hexagonal lattice for one of the additional Archimedean lattices. 
 
 In both cases, new structure will arise which will be explored and characterized. This will include deriving the radius of each cap, length, positions of proteins, protein stoichiometry rules, icosahedral class P, _T_-numbers, and the icosahedral lattice.
 
@@ -33,7 +33,7 @@ The extended elongated capsid theory will serve as a quantitative means for stud
 
 The main risk is that the extending of the theory for the elongated and conical structures is not feasible in the given time frame. For the elongated structures, this is highly unlikely, since the extension of the theory will involve a straightforward replacement of the lattice, which will result in adjusted lattice vectors ($$C_Q$$,$$C_T^120$$). The corresponding changes in the mathematical structure need to be merely catalogued. 
 
-For the conical structures, a construction involving $$T_small$$ and $$T_large$$ and a shared _P_-class has already been done for a handful examples successfully. The challenge is in generalizing the construction, which involves some uncertainty. 
+For the conical structures, a construction involving $$T_{small}$$ and $$T_{large}$$ and a shared _P_-class has already been done for a handful examples successfully. The challenge is in generalizing the construction, which involves some uncertainty. 
 
 The main payoffs are mentioned in (5). An additional payoff is that a set of previously unclassified or misclassified viruses is now classifiable. This will enhance our understanding of such viruses as it is our hypothesis that the structural classifications are tied to viral replication strategies and types of capsid protein folds.
 
