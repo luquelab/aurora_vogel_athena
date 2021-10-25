@@ -39,13 +39,13 @@ The main payoffs are mentioned in (5). An additional payoff is that a set of pre
 
 **How much will it cost?**
 
-> Yearly Salary: $20,000
-> 
-> Computer Needs: $171.00 (Mathematica, student license)
-> 
-> Publication Fees: $5,560 (>=1 Open access paper)
-> 
-> Conferences: $2,000
+Yearly Salary: $20,000
+ 
+Computer Needs: $171.00 (Mathematica, student license)
+ 
+Publication Fees: $5,560 (>=1 Open access paper)
+ 
+Conferences: $2,000
 	
 **How long will it take?**
 
