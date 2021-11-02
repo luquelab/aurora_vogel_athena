@@ -31,4 +31,6 @@ $$ \frac{C_T^2}{a^2} $$
 
 thus we get
 
-$$ T_j(h,k) = \frac{\alpha_j^2 C_T^2}{a^2} = \frac{(\frac{2}{\sqrt{3}})^2 C_T^2}{a^2} $$.
+$$ T_t(h,k) = \frac{\alpha_t C_T^2}{a^2} = \frac{(\frac{2}{\sqrt{3}})^2 C_T^2}{a^2} $$
+
+so $$\alpha_t = \frac{4}{3}$$.
