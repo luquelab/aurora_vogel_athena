@@ -37,8 +37,8 @@ $$ T_t(h,k) = \frac{\alpha_t C_T^2}{a^2} = \frac{(\frac{2}{\sqrt{3}})^2 C_T^2}{a
 so $$\alpha_t = \frac{4}{3}$$.
 
 ## Snub Hexagonal Lattice
-The snub hexagonal lattice has a scaling factor $$\alpha_s = \frac{7}{3}$$. This fact can be derived by thinking of the path from the origin of our current hexagon ($$O$$), to center of the nearest hexagon ($$B$$). A path to this adjacent hexagon can be though of in terms of the original hexagonal lattice. Moving to the center of the nearest "hexagon" $$C$$ followed by a movement of $$\frac{1}{\sqrt{3}$$ (derived in the previous lattice calculation) by an angle of $$\frac{\pi}{6}$$ we arrive at $$B$$. This gives us a triangle $$\Delta OCB$$. We know that $$OC=1$$ and $$CB=\frac{1}{\sqrt{3}}$$, and $$\angle OAC = \frac{5\pi}{6}$$, so using the law of cosines we get
+The snub hexagonal lattice has a scaling factor $$\alpha_s = \frac{7}{3}$$. This fact can be derived by thinking of the path from the origin of our current hexagon ($$O$$), to center of the nearest hexagon ($$B$$). A path to this adjacent hexagon can be thought of in terms of the original hexagonal lattice. Moving to the center of the nearest "hexagon" $$C$$ followed by a movement of $$\frac{1}{\sqrt{3}$$ (derived in the previous lattice calculation) by an angle of $$\frac{\pi}{6}$$ we arrive at $$B$$. This gives us a triangle $$\Delta OCB$$. We know that $$OC=1$$ and $$CB=\frac{1}{\sqrt{3}}$$, and $$\angle OAC = \frac{5\pi}{6}$$, so using the law of cosines we get
 
 $$ OB^2 = OC^2 + CB^2 - 2 OC\cdot CB = 1^2+\Big(\frac{1}{\sqrt{3}}\Big)^2-2(1)\frac{1}{\sqrt{3}}cos(\frac{\pi}{6})=\frac{7}{3} $$.
 
-Thus $$C_T^2=\frac{7}{3}$$ and we then get $$\alpha_s = \frac{7}{3}$$.
+Thus $${C_T}^2=\frac{7}{3}$$ and we then get $$\alpha_s = \frac{7}{3}$$.
