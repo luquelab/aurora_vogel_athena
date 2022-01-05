@@ -2,7 +2,7 @@
 layout: default
 title: Conical Structures
 nav_order: 3
-parent: Background
+parent: Appendix
 ---
 # Conical Structures
 Test.

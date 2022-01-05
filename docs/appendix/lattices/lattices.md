@@ -2,7 +2,7 @@
 layout: default
 title: Archimedean Lattices
 nav_order: 3
-parent: Background
+parent: Appendix
 ---
 # Archimedean Lattices
 The additional archimedean lattices which possess sub-hexagonal lattices include the trihexagonal, snub hexagonal, and the rhombitrihexagonal lattice (alongside their duals).
