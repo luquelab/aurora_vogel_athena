@@ -47,7 +47,7 @@ We can calculate the area of any equilateral triangle contained in the hexagonal
 
 ### Theorem
 >The $$T$$-number of any triangle is given by the formula
->$T = h^2 + hk + k^2$
+>$$T = h^2 + hk + k^2$$
 
 
 _Proof._ Assume some vector $$\vec{C_T}=(h,k)$$. Denote it's length by $$\|C_T\|$$. This will be the length of the equilateral triangle we consider.
@@ -103,7 +103,8 @@ It will be convenient to work with another pair of coordinates on our hexagonal 
 
 ### Definition
 > Define the **body-vector $$\vec{C_Q}$$** as the vector which connects a pentamer from one cap to the closest pentamer on the opposing cap
-
-> $$\begin{align*}
 > \vec{C_Q} := h' \vec{a_1}' + k' \vec{a_2}'
-> \end{align*}$$
+We can then define $$T_1$$ as the area of the body triangle (made up by sides \(\vec{C_Q}\) and \(\vec{C_T}) divided by the area of the basic triangles (so it is analogous to the $$T$$-number but for the body triangle). We can now prove the following formula for \(T_1\).
+
+_Proof._ Assume vector $$\vec{C_T}=(h,k)$$ and \(vec{C_Q}=(h',k')\).
+a
