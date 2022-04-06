@@ -3,6 +3,7 @@ This folder contains source code files that require compilation.
 
 Solver.py contains my attempt at using sympy solvers to solve the
 system of 27 quadratics with 27 variables.
+
 -> Comments are above each attempt 
    to indicate results
    
@@ -17,6 +18,7 @@ system of 27 quadratics with 27 variables.
 minimizer.py contains my attempt at minimizing the distance function which
 has the distances b/w the actual verts minus there theoretical
 distances
+
 -> I tried a couple minimization methods in the minimize function
    but results were the same
    
