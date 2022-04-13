@@ -1,14 +1,17 @@
 import numpy as np
 import math
 import sympy
+from scipy.optimize import fsolve
 
 # init 3 vertices for equilateral triangle with side length 1
-v01=np.array([0,0,0])
-v02=np.array([1/2,math.sqrt(3)/2,0])
-v03=np.array([0,1,0])
+# golden ratio
+phi=(1+math.sqrt(5))/2
+# init verts
+v01 = np.array([0,0,0])
+v02 = np.array([1/2,math.sqrt(3)/2,0])
+v03 = np.array([0,1,0])
 
 v04x, v04y, v04z, v05x, v05y, v05z, v06x, v06y, v06z, v07x, v07y, v07z, v08x, v08y, v08z, v09x, v09y, v09z, v10x, v10y, v10z, v11x, v11y, v11z, v12x, v12y, v12z = sympy.symbols("v04x v04y v04z v05x v05y v05z v06x v06y v06z v07x v07y v07z v08x v08y v08z v09x v09y v09z v10x v10y v10z v11x v11y v11z v12x v12y v12z", real=True)
-
 
 
 ########################################################################
@@ -22,6 +25,9 @@ def tetrahedron_solver():
     eq3 = sympy.Eq((v04x - v01[0])**2 + (v04y - v01[1])**2 + (v04z - v01[2])**2, 1.0**2)
 
     return sympy.solve([eq1, eq2, eq3])
+    sympy.nsolve((eq1, eq2, eq3),
+                 (v04x, v04y, v04z)
+                 (0,0,0))
 
 
 ########################################################################
@@ -56,6 +62,8 @@ def octahedron_solver():
 ########################################################################
 # Unsuccessful icosahedron
 ########################################################################
+
+
 def icosahedron_solver1():
     # Top rim
     eq1 = sympy.Eq((v03[0] - v04x)**2 + (v03[1] - v04y)**2 + (v03[2] - v04z)**2, 1.0**2)
@@ -114,6 +122,7 @@ def icosahedron_solver1():
 
 ###################################################################
 
+
 def icosahedron_solver2():
     # Top rim
     eq1 = (v03[0] - v04x)**2 + (v03[1] - v04y)**2 + (v03[2] - v04z)**2
@@ -158,7 +167,82 @@ def icosahedron_solver2():
             eq22, eq23, eq24, eq25, eq26, eq27),
                 (v04x, v04y, v04z, v05x, v05y, v05z, v06x, v06y, v06z, v07x, v07y, v07z, v08x, v08y, v08z, v09x, v09y, v09z, v10x, v10y, v10z, v11x, v11y, v11z, v12x, v12y, v12z),(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1))
 
+
+def func(x):
+    r = 2
+    v01 = x[0:3]
+    v02 = x[3:6]
+    v03 = x[6:9]
+    v04 = x[9:12]
+    v05 = x[12:15]
+    v06 = x[15:18]
+    v07 = x[18:21]
+    v08 = x[21:24]
+    v09 = x[24:27]
+    v10 = x[27:30]
+    v11 = x[30:33]
+    v12 = x[33:36]
+
+    eq1 = np.array((v03[0] - v04[0]) ** 2 + (v03[1] - v04[1]) ** 2 + (v03[2] - v04[2]) ** 2) - r ** 2
+    eq2 = np.array((v04[0] - v05[0]) ** 2 + (v04[1] - v05[1]) ** 2 + (v04[2] - v05[2]) ** 2) - r ** 2
+    eq3 = np.array((v05[0] - v06[0]) ** 2 + (v05[1] - v06[1]) ** 2 + (v05[2] - v06[2]) ** 2) - r ** 2
+    eq4 = np.array((v06[0] - v02[0]) ** 2 + (v06[1] - v02[1]) ** 2 + (v06[2] - v02[2]) ** 2) - r ** 2
+    # cnxn to top rim
+    eq5 = np.array((v04[0] - v01[0]) ** 2 + (v04[1] - v01[1]) ** 2 + (v04[2] - v01[2]) ** 2) - r ** 2
+    eq6 = np.array((v05[0] - v01[0]) ** 2 + (v05[1] - v01[1]) ** 2 + (v05[2] - v01[2]) ** 2) - r ** 2
+    eq7 = np.array((v06[0] - v01[0]) ** 2 + (v06[1] - v01[1]) ** 2 + (v06[2] - v01[2]) ** 2) - r ** 2
+
+    ## body cnxn to top
+    eq8 = np.array((v07[0] - v02[0]) ** 2 + (v07[1] - v02[1]) ** 2 + (v07[2] - v02[2]) ** 2) - r ** 2
+    eq9 = np.array((v08[0] - v02[0]) ** 2 + (v08[1] - v02[1]) ** 2 + (v08[2] - v02[2]) ** 2) - r ** 2
+    eq10 = np.array((v08[0] - v03[0]) ** 2 + (v08[1] - v03[1]) ** 2 + (v08[2] - v03[2]) ** 2) - r ** 2
+    eq11 = np.array((v09[0] - v03[0]) ** 2 + (v09[1] - v03[1]) ** 2 + (v09[2] - v03[2]) ** 2) - r ** 2
+    eq12 = np.array((v09[0] - v04[0]) ** 2 + (v09[1] - v04[1]) ** 2 + (v09[2] - v04[2]) ** 2) - r ** 2
+    eq13 = np.array((v10[0] - v04[0]) ** 2 + (v10[1] - v04[1]) ** 2 + (v10[2] - v04[2]) ** 2) - r ** 2
+    eq14 = np.array((v10[0] - v05[0]) ** 2 + (v10[1] - v05[1]) ** 2 + (v10[2] - v05[2]) ** 2) - r ** 2
+    eq15 = np.array((v11[0] - v05[0]) ** 2 + (v11[1] - v05[1]) ** 2 + (v11[2] - v05[2]) ** 2) - r ** 2
+    eq16 = np.array((v11[0] - v06[0]) ** 2 + (v11[1] - v06[1]) ** 2 + (v11[2] - v06[2]) ** 2) - r ** 2
+    eq17 = np.array((v07[0] - v06[0]) ** 2 + (v07[1] - v06[1]) ** 2 + (v07[2] - v06[2]) ** 2) - r ** 2
+
+    # bottom rim
+    eq18 = np.array((v07[0] - v08[0]) ** 2 + (v07[1] - v08[1]) ** 2 + (v07[2] - v08[2]) ** 2) - r ** 2
+    eq19 = np.array((v08[0] - v09[0]) ** 2 + (v08[1] - v09[1]) ** 2 + (v08[2] - v09[2]) ** 2) - r ** 2
+    eq20 = np.array((v09[0] - v10[0]) ** 2 + (v09[1] - v10[1]) ** 2 + (v09[2] - v10[2]) ** 2) - r ** 2
+    eq21 = np.array((v10[0] - v11[0]) ** 2 + (v10[1] - v11[1]) ** 2 + (v10[2] - v11[2]) ** 2) - r ** 2
+    eq22 = np.array((v11[0] - v07[0]) ** 2 + (v11[1] - v07[1]) ** 2 + (v11[2] - v07[2]) ** 2) - r ** 2
+
+    # Cnxn to bottom rim
+    eq23 = np.array((v07[0] - v12[0]) ** 2 + (v07[1] - v12[1]) ** 2 + (v07[2] - v12[2]) ** 2) - r ** 2
+    eq24 = np.array((v08[0] - v12[0]) ** 2 + (v08[1] - v12[1]) ** 2 + (v08[2] - v12[2]) ** 2) - r ** 2
+    eq25 = np.array((v09[0] - v12[0]) ** 2 + (v09[1] - v12[1]) ** 2 + (v09[2] - v12[2]) ** 2) - r ** 2
+    eq26 = np.array((v10[0] - v12[0]) ** 2 + (v10[1] - v12[1]) ** 2 + (v10[2] - v12[2]) ** 2) - r ** 2
+    eq27 = np.array((v11[0] - v12[0]) ** 2 + (v11[1] - v12[1]) ** 2 + (v11[2] - v12[2]) ** 2) - r ** 2
+
+    return [eq1, eq2, eq3, eq4, eq5, eq6, eq7, eq8, eq9, eq10, eq11,
+            eq12, eq13, eq14, eq15, eq16, eq17, eq18, eq19, eq20, eq21,
+            eq22, eq23, eq24, eq25, eq26, eq27]
+
+
+def icosahedron_solver3():  # scipy
+    init_verts = np.array([0, 1, phi, # v01
+                            1, phi, 0, # v02
+                            phi, 0, 1, # v03
+                            0.25, -1, phi,  # v04
+                           -phi, 0, 1,  # v05
+                           -1, phi, 0,  # v06
+                           0, 1, -phi,  # v07
+                           phi, 0, -1,  # v08
+                           1, -phi, 0,  # v09
+                           -1, -phi, 0,  # v10
+                           -phi, 0, -1,  # v11
+                           0, -1, -phi,  # v12
+                   ])
+
+    roots = fsolve(func, init_verts)
+    return roots
+
 # tetrahedron_solver()
 # octahedron_solver()
 # icosahedron_solver1()
 # icosahedron_solver2()
+# icosahedron_solver3()
