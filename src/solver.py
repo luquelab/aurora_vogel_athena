@@ -224,21 +224,21 @@ def func(x):
 
 
 def icosahedron_solver3():  # scipy
-    init_verts = np.array([0, 1, phi, # v01
-                            1, phi, 0, # v02
-                            phi, 0, 1, # v03
-                            0.25, -1, phi,  # v04
-                           -phi, 0, 1,  # v05
-                           -1, phi, 0,  # v06
-                           0, 1, -phi,  # v07
-                           phi, 0, -1,  # v08
-                           1, -phi, 0,  # v09
-                           -1, -phi, 0,  # v10
-                           -phi, 0, -1,  # v11
-                           0, -1, -phi,  # v12
-                   ])
+init_verts = np.array([0, 1, phi, # v01
+                        1, phi, 0, # v02
+                        phi, 0, 1, # v03
+                        0.25, -1, phi,  # v04
+                       -phi, 0, 1,  # v05
+                       -1, phi, 0,  # v06
+                       0, 1, -phi,  # v07
+                       phi, 0, -1,  # v08
+                       1, -phi, 0,  # v09
+                       -1, -phi, 0,  # v10
+                       -phi, 0, -1,  # v11
+                       0, -1, -phi,  # v12
+               ])
 
-    roots = fsolve(func, init_verts)
+roots = fsolve(func, init_verts)
     return roots
 
 # tetrahedron_solver()
