@@ -1,6 +1,8 @@
 import numpy as np
 import math
 import sympy
+import matplotlib.pyplot as plt
+import pandas as pd
 from scipy.optimize import fsolve
 
 # init 3 vertices for equilateral triangle with side length 1
@@ -218,7 +220,7 @@ def func(x):
     eq26 = np.array((v10[0] - v12[0]) ** 2 + (v10[1] - v12[1]) ** 2 + (v10[2] - v12[2]) ** 2) - r ** 2
     eq27 = np.array((v11[0] - v12[0]) ** 2 + (v11[1] - v12[1]) ** 2 + (v11[2] - v12[2]) ** 2) - r ** 2
 
-    return [eq1, eq2, eq3, eq4, eq5, eq6, eq7, eq8, eq9, eq10, eq11,
+    return [0,0,0,0,0,0,0,0,0,eq1, eq2, eq3, eq4, eq5, eq6, eq7, eq8, eq9, eq10, eq11,
             eq12, eq13, eq14, eq15, eq16, eq17, eq18, eq19, eq20, eq21,
             eq22, eq23, eq24, eq25, eq26, eq27]
 
@@ -240,6 +242,40 @@ init_verts = np.array([0, 1, phi, # v01
 
 roots = fsolve(func, init_verts)
     return roots
+
+x = roots
+v01 = x[0:3]
+v02 = x[3:6]
+v03 = x[6:9]
+v04 = x[9:12]
+v05 = x[12:15]
+v06 = x[15:18]
+v07 = x[18:21]
+v08 = x[21:24]
+v09 = x[24:27]
+v10 = x[27:30]
+v11 = x[30:33]
+v12 = x[33:36]
+
+# placing all verts together to form a dataframe which can be plotted
+DATA=pd.DataFrame([v01,v02,v03,v04,v05,v06,v07,v08,v09,v10,v11,v12],columns=["X","Y","Z"])
+
+
+fig = plt.figure()
+ax = fig.add_subplot(projection='3d')
+ax.scatter(DATA['X'], DATA['Y'], DATA['Z'])
+
+# labeling the verts plotted
+n=[1,2,3,4,5,6,7,8,9,10,11,12]
+for i, txt in enumerate(n):
+    ax.text(DATA['X'][i], DATA['Y'][i], DATA['Z'][i],'%s' % (str(i)), size=8, zorder=1,
+    color='k')
+
+ax.set_xlabel('X Label')
+ax.set_ylabel('Y Label')
+ax.set_zlabel('Z Label')
+
+plt.show()
 
 # tetrahedron_solver()
 # octahedron_solver()
