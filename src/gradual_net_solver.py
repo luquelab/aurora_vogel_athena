@@ -7,24 +7,6 @@ from scipy.optimize import minimize
 from scipy.optimize import basinhopping
 
 
-class MyConstraints:
-    def __init__(self, x_max=np.zeros(44), x_min=np.zeros(44), verts_ignored={}):
-        self.x_max = x_max
-        self.x_min = x_min
-        self.verts_ignored = verts_ignored
-
-    def __call__(self, **kwargs):
-        x = kwargs["x_new"]
-        criteria = True
-        for i in self.verts_ignored:
-            if x[i] < 10**-6:
-                pass
-            else:
-                criteria = False
-                break
-        return criteria
-
-
 ICOS_VERTS = set(range(0, 22))
 VERTS_IN_USE = list()
 VERTS_DICT = {}
