@@ -172,7 +172,7 @@ def make_shapes(lat_type="hex", lattice=[]):
 
 
 def make_7_5_path(p_vec, z, n=None, iteration=0, return_area=False):
-    area = -1 # placeholder
+    area = -1  # placeholder
     if not n:
         n_test = 0
         while 5*n_test - 4*z <= 0:
@@ -188,7 +188,37 @@ def make_7_5_path(p_vec, z, n=None, iteration=0, return_area=False):
     print("m = " + str(m))
     if return_area:
         area = get_7_5_area(p_vec, z, n, m)
-        print("area = " + str(area))
+        print("area = " + str(3*area))
+    return [top_path, bottom_path, distance, area]
+
+
+def make_8_4_path(p_vec, z, n=None, iteration=0, return_area=False):
+    area = -1  # placeholder
+    if not n:
+        n_test = 0
+        a = (2 * n_test - z) * p_vec[0] + (z - n_test) * p_vec[1]
+        b = (n_test - z) * p_vec[0] + (3 * n_test - 2 * z) * p_vec[1]
+        while lib.hex_to_cart(lib.rotate_sixty(np.array([a, b, 0]), -1))[0] <= 0:
+            n_test += 1
+            a = (2 * n_test - z) * p_vec[0] + (z - n_test) * p_vec[1]
+            b = (n_test - z) * p_vec[0] + (3 * n_test - 2 * z) * p_vec[1]
+        n = n_test + iteration
+    a = (2 * n - z) * p_vec[0] + (z - n) * p_vec[1]
+    b = (n - z) * p_vec[0] + (3 * n - 2 * z) * p_vec[1]
+
+    first_vec = np.array([a, b, 0])
+    sec_vec = np.array([a + b - n*p_vec[1], n*p_vec[0] - a + n*p_vec[1], 0])
+    top_path = [first_vec, sec_vec, z*p_vec, z*p_vec, z*p_vec]
+    bottom_path = [n*p_vec, n*p_vec, n*p_vec, n*p_vec, n*p_vec]
+    distance = lib.rotate_sixty(n*p_vec, 1)
+    print("We have the following 8-4 cone parameters:")
+    print("z = "+str(z))
+    print("n = " + str(n))
+    print("first_vec = " + str(first_vec))
+    print("sec_vec = " + str(sec_vec))
+    # if return_area:
+    #     area = get_7_5_area(p_vec, z, n, m)
+    #     print("area = " + str(3*area))
     return [top_path, bottom_path, distance, area]
 
 
@@ -232,26 +262,32 @@ move_set = PathSet()
 # distance = np.array([0, 9, 9])
 
 # top_path, bottom_path, distance = make_7_5_path(p_vec=np.array([1, 1, 0]), z=7, n=7)
-top_path, bottom_path, distance, area = make_7_5_path(p_vec=np.array([1, 0, 0]), z=2, iteration=1, return_area=True)
+# top_path, bottom_path, distance, area = make_7_5_path(p_vec=np.array([1, 0, 0]), z=1, iteration=1, return_area=True)
+# top_path, bottom_path, distance, area = make_8_4_path(p_vec=np.array([1, 0, 0]), z=4, n=3)
+top_path, bottom_path, distance, area = make_8_4_path(p_vec=np.array([1, 1, 0]), z=6, iteration=0)
 
-build_path_dataset(p_vec=np.array([2, 1, 0]), limit=20)
 
-top_path = [np.array([8, 14, 0]),
-          np.array([14, 8, 0]),
-          np.array([2, 2, 0]),
-          np.array([2, 2, 0]),
-          np.array([2, 2, 0])]
-bottom_path = [np.array([8, 8, 0]),
-          np.array([8, 8, 0]),
-          np.array([8, 8, 0]),
-          np.array([8, 8, 0]),
-          np.array([8, 8, 0])]
-distance = np.array([0, 8, 8])
+# build_path_dataset(p_vec=np.array([2, 1, 0]), limit=20)
+
+# top_path = [np.array([3, 1, 0]),
+#           np.array([4, -1, 0]),
+#           np.array([1, 0, 0]),
+#           np.array([1, 0, 0]),
+#           np.array([1, 0, 0])]
+# bottom_path = [np.array([2, 0, 0]),
+#           np.array([2, 0, 0]),
+#           np.array([2, 0, 0]),
+#           np.array([2, 0, 0]),
+#           np.array([2, 0, 0])]
+# distance = np.array([0, 2, 0])
 
 
 move_set.upper_path = top_path
 move_set.lower_path = bottom_path
 move_set.distance_between = distance
+
+print("top_path is " + str(top_path))
+print("bottom_path is " + str(bottom_path))
 
 # Grabbing the net coordinates
 my_net = get_net(move_set)
