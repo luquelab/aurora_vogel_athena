@@ -222,6 +222,53 @@ def make_8_4_path(p_vec, z, n=None, iteration=0, return_area=False):
     return [top_path, bottom_path, distance, area]
 
 
+def make_9_3_path(p_vec, z, n=None, iteration=0, return_area=False):
+    area = -1  # placeholder
+    if not n:
+        n = iteration + 1
+    n2 = 2*z-n
+    a = z*p_vec[0] + (-z+n)*p_vec[1]
+    b = (z-n)*p_vec[0] + (2*z-n)*p_vec[1]
+
+    first_vec = np.array([a, b, 0])
+    sec_vec = np.array([a + b - n*p_vec[1], -a + n*(p_vec[0] + p_vec[1]), 0])
+    top_path = [z*p_vec, first_vec, sec_vec, z*p_vec, z*p_vec]
+    bottom_path = [z*p_vec, z*p_vec, n2*p_vec, z*p_vec, z*p_vec]
+    distance = lib.rotate_sixty(z*p_vec, 1)
+    print("We have the following 9-3 cone parameters:")
+    print("z = "+str(z))
+    print("n = " + str(n))
+    print("first_vec = " + str(first_vec))
+    print("sec_vec = " + str(sec_vec))
+    # if return_area:
+    #     area = get_7_5_area(p_vec, z, n, m)
+    #     print("area = " + str(3*area))
+    return [top_path, bottom_path, distance, area]
+
+
+def make_10_2_path(p_vec, z, n=None, iteration=0, return_area=False):
+    area = -1  # placeholder
+    if not n:
+        n = iteration + 1
+    a = z * p_vec[0] + (-z + n) * p_vec[1]
+    b = (z - n) * p_vec[0] + (2 * z - n) * p_vec[1]
+
+    first_vec = np.array([a, b, 0])
+    sec_vec = np.array([a + b - n * p_vec[1], -a + n * (p_vec[0] + p_vec[1]), 0])
+    top_path = [z * p_vec, first_vec, sec_vec, z * p_vec, z * p_vec]
+    bottom_path = [z * p_vec, z * p_vec, z * p_vec, z * p_vec, z * p_vec]
+    distance = lib.rotate_sixty(z * p_vec, 1)
+    print("We have the following 10-2 cone parameters:")
+    print("z = " + str(z))
+    print("n = " + str(n))
+    print("first_vec = " + str(first_vec))
+    print("sec_vec = " + str(sec_vec))
+    # if return_area:
+    #     area = get_7_5_area(p_vec, z, n, m)
+    #     print("area = " + str(3*area))
+    return [top_path, bottom_path, distance, area]
+
+
 def get_7_5_area(p_vec, z, n, m):  # Assumes j0 = 0
     h0 = p_vec[0]
     k0 = p_vec[1]
@@ -245,7 +292,6 @@ def build_path_dataset(p_vec, limit):
     df.to_excel("output.xlsx", sheet_name='sheet_1')
 
 
-
 # Getting my move_set object set up with paths and a distance
 move_set = PathSet()
 # path_1 = [np.array([5, 5, 0]),
@@ -264,22 +310,25 @@ move_set = PathSet()
 # top_path, bottom_path, distance = make_7_5_path(p_vec=np.array([1, 1, 0]), z=7, n=7)
 # top_path, bottom_path, distance, area = make_7_5_path(p_vec=np.array([1, 0, 0]), z=1, iteration=1, return_area=True)
 # top_path, bottom_path, distance, area = make_8_4_path(p_vec=np.array([1, 0, 0]), z=4, n=3)
-top_path, bottom_path, distance, area = make_8_4_path(p_vec=np.array([1, 1, 0]), z=6, iteration=0)
+# top_path, bottom_path, distance, area = make_8_4_path(p_vec=np.array([1, 1, 0]), z=6, iteration=0)
+# top_path, bottom_path, distance, area = make_9_3_path(p_vec=np.array([2, 2, 0]), z=2, n=1)
+# z=2 n=3 example
 
+top_path, bottom_path, distance, area = make_10_2_path(p_vec=np.array([1, 1, 0]), z=2, n=1)
 
 # build_path_dataset(p_vec=np.array([2, 1, 0]), limit=20)
 
-# top_path = [np.array([3, 1, 0]),
-#           np.array([4, -1, 0]),
-#           np.array([1, 0, 0]),
-#           np.array([1, 0, 0]),
-#           np.array([1, 0, 0])]
-# bottom_path = [np.array([2, 0, 0]),
-#           np.array([2, 0, 0]),
-#           np.array([2, 0, 0]),
-#           np.array([2, 0, 0]),
-#           np.array([2, 0, 0])]
-# distance = np.array([0, 2, 0])
+# top_path = [np.array([4, 1, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([1, 4, 0])]
+# bottom_path = [np.array([3, 3, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 2, 0])]
+# distance = np.array([0, 1, 1])
 
 
 move_set.upper_path = top_path
