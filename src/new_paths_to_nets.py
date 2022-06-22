@@ -15,10 +15,48 @@ CORNERS = []
 
 
 class PathSet:
-    def __init__(self, upper_path=[], lower_path=[], distance_between=0):
+    def __init__(self, upper_path=[], lower_path=[], distance_between=0, connection=[], triangles=[], num_subunits=[]):
         self.upper_path = upper_path
         self.lower_path = lower_path
         self.distance_between = distance_between
+        self.connection = connection
+        self.triangles = triangles
+        self.num_subunits = num_subunits
+
+    def assign_triangles(self, net):
+        tris = []
+        for triangle in self.connection:
+            v1 = lib.hex_to_cart(net[triangle[0]])
+            v2 = lib.hex_to_cart(net[triangle[1]])
+            v3 = lib.hex_to_cart(net[triangle[2]])
+            tris.append(Triangle(vertices=[v1, v2, v3]))
+        self.triangles = tris
+
+    def assign_num_subunits(self):
+        total_area = 0
+        for triangle in self.triangles:
+            total_area += triangle.area
+        unit_triangle = math.sqrt(3)/4
+        self.num_subunits = round(total_area / unit_triangle * 3, 4)
+
+
+class Triangle:
+    def __init__(self, vertices=[]):
+        self.vertices = vertices
+        self.area = self.get_area()
+
+    def get_area(self):
+        v1 = self.vertices[0]
+        v2 = self.vertices[1]
+        v3 = self.vertices[2]
+        s1 = np.linalg.norm(v1-v2)
+        s2 = np.linalg.norm(v2-v3)
+        s3 = np.linalg.norm(v1-v3)
+        p = (s1 + s2 + s3)/2  # Half of the perimeter
+        a = math.sqrt(
+            abs(p*(p-s1)*(p-s2)*(p-s3))
+        )  # Area calculated via Heron's formula
+        return a
 
 
 def get_net(move_set: PathSet):
@@ -250,11 +288,11 @@ def make_10_2_path(p_vec, z, n=None, iteration=0, return_area=False):
     area = -1  # placeholder
     if not n:
         n = iteration + 1
-    a = z * p_vec[0] + (-z + n) * p_vec[1]
-    b = (z - n) * p_vec[0] + (2 * z - n) * p_vec[1]
+    a = (2*z-n)*p_vec[0] + (2*n-2*z)*p_vec[1]
+    b = -2*a+2*z*p_vec[0] + n*p_vec[1]
 
     first_vec = np.array([a, b, 0])
-    sec_vec = np.array([a + b - n * p_vec[1], -a + n * (p_vec[0] + p_vec[1]), 0])
+    sec_vec = np.array([a + b - n * p_vec[1], a - n * p_vec[0] + n * p_vec[1], 0])
     top_path = [z * p_vec, first_vec, sec_vec, z * p_vec, z * p_vec]
     bottom_path = [z * p_vec, z * p_vec, z * p_vec, z * p_vec, z * p_vec]
     distance = lib.rotate_sixty(z * p_vec, 1)
@@ -267,6 +305,27 @@ def make_10_2_path(p_vec, z, n=None, iteration=0, return_area=False):
     #     area = get_7_5_area(p_vec, z, n, m)
     #     print("area = " + str(3*area))
     return [top_path, bottom_path, distance, area]
+
+
+def make_elongated_path(elong_type, t_vec, q_vec):
+    if elong_type == "5-fold":
+        top_path = [t_vec, t_vec, t_vec, t_vec, t_vec]
+        bottom_path = top_path
+        distance = q_vec
+        return [top_path, bottom_path, distance, -1]
+
+    if elong_type == "3-fold":
+        qr_vec = lib.rotate_sixty(q_vec, -1)  # q_vec rotated -pi/3 degrees for path
+        top_path = [t_vec, t_vec, qr_vec, t_vec, t_vec]
+        bottom_path = [qr_vec, t_vec, t_vec, t_vec, t_vec]
+        distance = lib.rotate_sixty(t_vec, 1)
+        return [top_path, bottom_path, distance, -1]
+    if elong_type == "2-fold":
+        qr_vec = lib.rotate_sixty(q_vec, -1)  # q_vec rotated -pi/3 degrees for path
+        top_path = [qr_vec, t_vec, t_vec, t_vec, t_vec]
+        bottom_path = [t_vec, t_vec, t_vec, t_vec, qr_vec]
+        distance = lib.rotate_sixty(t_vec, 1)
+        return [top_path, bottom_path, distance, -1]
 
 
 def get_7_5_area(p_vec, z, n, m):  # Assumes j0 = 0
@@ -282,14 +341,31 @@ def get_7_5_area(p_vec, z, n, m):  # Assumes j0 = 0
     return round(para_area - top_triangles - bottom_triangles, 4)
 
 
-def build_path_dataset(p_vec, limit):
+def build_path_dataset(p_vec, it_limit, cone_type):
     area_list = []
-    for z in range(1, limit):
-        for iteration in range(limit):
-            area = make_7_5_path(p_vec=p_vec, z=z, iteration=iteration, return_area=True)[-1]
-            area_list.append([z, iteration, area])
+    for z in range(1, it_limit):
+        for iteration in range(it_limit):
+            move_set = PathSet()
+            if cone_type == "7-5":
+                top_path, bottom_path, distance, area = make_7_5_path(p_vec=p_vec, z=z, iteration=iteration)
+            if cone_type == "8-4":
+                top_path, bottom_path, distance, area = make_8_4_path(p_vec=p_vec, z=z, iteration=iteration)
+            if cone_type == "9-3":
+                top_path, bottom_path, distance, area = make_9_3_path(p_vec=p_vec, z=z, iteration=iteration)
+            if cone_type == "10-2":
+                top_path, bottom_path, distance, area = make_10_2_path(p_vec=p_vec, z=z, iteration=iteration)
+            move_set.upper_path = top_path
+            move_set.lower_path = bottom_path
+            move_set.distance_between = distance
+            move_set.connection = ICOS_CNXN
+
+            my_net = get_net(move_set)
+            move_set.assign_triangles(my_net)
+            move_set.assign_num_subunits()
+
+            area_list.append([z, iteration, move_set.num_subunits])
     df = pd.DataFrame(np.array(area_list), columns=['z', 'iteration', 'area'])
-    df.to_excel("output.xlsx", sheet_name='sheet_1')
+    df.to_excel("output" + str(cone_type) + ".xlsx", sheet_name='sheet_1')
 
 
 # Getting my move_set object set up with paths and a distance
@@ -307,39 +383,44 @@ move_set = PathSet()
 # path_2 = path_1
 # distance = np.array([0, 9, 9])
 
-# top_path, bottom_path, distance = make_7_5_path(p_vec=np.array([1, 1, 0]), z=7, n=5)
-# top_path, bottom_path, distance, area = make_7_5_path(p_vec=np.array([1, 0, 0]), z=1, iteration=2, return_area=True)
+top_path, bottom_path, distance, area = make_7_5_path(p_vec=np.array([1, 1, 0]), z=1, iteration=1, return_area=True)
 # top_path, bottom_path, distance, area = make_8_4_path(p_vec=np.array([1, 0, 0]), z=4, n=3)
-# top_path, bottom_path, distance, area = make_8_4_path(p_vec=np.array([1, 1, 0]), z=1, iteration=1)
-top_path, bottom_path, distance, area = make_9_3_path(p_vec=np.array([1, 1, 0]), z=2, n=1)
+# top_path, bottom_path, distance, area = make_8_4_path(p_vec=np.array([1, 0, 0]), z=1, iteration=1)
+# top_path, bottom_path, distance, area = make_9_3_path(p_vec=np.array([1, 1, 0]), z=2, n=1)
 # z=2 n=3 example
 
-# top_path, bottom_path, distance, area = make_10_2_path(p_vec=np.array([1, 1, 0]), z=2, n=1)
+# top_path, bottom_path, distance, area = make_10_2_path(p_vec=np.array([1, 0, 0]), z=3, n=1)
 
-# build_path_dataset(p_vec=np.array([2, 1, 0]), limit=20)
+# top_path, bottom_path, distance, area = make_elongated_path(elong_type="5-fold", t_vec=np.array([1, 1, 0]),
+#                                                             q_vec=5*np.array([0, 1, 2]))
+
+# build_path_dataset(p_vec=np.array([2, 1, 0]), it_limit=20, cone_type="8-4")
 #
-# top_path = [np.array([4, 1, 0]),
-#           np.array([2, 2, 0]),
-#           np.array([2, 2, 0]),
-#           np.array([2, 2, 0]),
-#           np.array([1, 4, 0])]
-# bottom_path = [np.array([3, 3, 0]),
-#           np.array([2, 2, 0]),
-#           np.array([2, 2, 0]),
-#           np.array([2, 2, 0]),
-#           np.array([2, 2, 0])]
-# distance = np.array([0, 1, 1])
+top_path = [np.array([3, 3, 0]),
+          np.array([3, 3, 0]),
+          np.array([3, 3, 0]),
+          np.array([3, 3, 0]),
+          np.array([5, 4, 0])]
+bottom_path = [np.array([3, 3, 0]),
+          np.array([3, 3, 0]),
+          np.array([3, 3, 0]),
+          np.array([4, 3, 0]),
+          np.array([4, 4, 0])]
+distance = np.array([0, 5, 3])
 #
 
 move_set.upper_path = top_path
 move_set.lower_path = bottom_path
 move_set.distance_between = distance
+move_set.connection = ICOS_CNXN
 
 print("top_path is " + str(top_path))
 print("bottom_path is " + str(bottom_path))
 
 # Grabbing the net coordinates
 my_net = get_net(move_set)
-
+move_set.assign_triangles(my_net)
+move_set.assign_num_subunits()
+print("number of subunits (via triangle sum) " + str(move_set.num_subunits))
 # Graphing the coordinates
 graph_net(my_net)
