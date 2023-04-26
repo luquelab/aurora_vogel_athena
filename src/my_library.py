@@ -14,6 +14,12 @@ def hex_to_cart(v1):
     return np.array([x, y])
 
 
+def cart_to_hex(X):
+    x, y = X
+    v1 = np.array([x-y/2*2/math.sqrt(3), y*2/math.sqrt(3), 0])
+    return v1
+
+
 def find_angle(vec1, vec2):
     cos_angle = np.dot(vec1, vec2)/(np.linalg.norm(vec1)*np.linalg.norm(vec2))
     return np.arccos(cos_angle)

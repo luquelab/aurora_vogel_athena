@@ -311,24 +311,24 @@ move_set = PathSet()
 # top_path, bottom_path, distance, area = make_7_5_path(p_vec=np.array([1, 0, 0]), z=1, iteration=2, return_area=True)
 # top_path, bottom_path, distance, area = make_8_4_path(p_vec=np.array([1, 0, 0]), z=4, n=3)
 # top_path, bottom_path, distance, area = make_8_4_path(p_vec=np.array([1, 1, 0]), z=1, iteration=1)
-top_path, bottom_path, distance, area = make_9_3_path(p_vec=np.array([1, 1, 0]), z=2, n=1)
+# top_path, bottom_path, distance, area = make_9_3_path(p_vec=np.array([1, 1, 0]), z=2, n=1)
 # z=2 n=3 example
 
 # top_path, bottom_path, distance, area = make_10_2_path(p_vec=np.array([1, 1, 0]), z=2, n=1)
 
 # build_path_dataset(p_vec=np.array([2, 1, 0]), limit=20)
 #
-# top_path = [np.array([4, 1, 0]),
-#           np.array([2, 2, 0]),
-#           np.array([2, 2, 0]),
-#           np.array([2, 2, 0]),
-#           np.array([1, 4, 0])]
-# bottom_path = [np.array([3, 3, 0]),
-#           np.array([2, 2, 0]),
-#           np.array([2, 2, 0]),
-#           np.array([2, 2, 0]),
-#           np.array([2, 2, 0])]
-# distance = np.array([0, 1, 1])
+top_path = [np.array([1, 2, 0]),
+          np.array([1, 1, 0]),
+          np.array([1, 1, 0]),
+          np.array([1, 1, 0]),
+          np.array([1, 1, 0])]
+bottom_path = [np.array([1, 1, 0]),
+          np.array([1, 1, 0]),
+          np.array([1, 1, 0]),
+          np.array([1, 1, 0]),
+          np.array([1, 2, 0])]
+distance = np.array([0, 1, 1])
 #
 
 move_set.upper_path = top_path
