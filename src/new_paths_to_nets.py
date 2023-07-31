@@ -18,6 +18,13 @@ ICOS_CNXN = [[5, 0, 6], [6, 1, 7], [7, 2, 8], [8, 3, 9], [9, 4, 10],
 #              [11, 5, 6], [12, 6, 7], [13, 7, 8], [15, 9, 16],
 #              [17, 11, 12], [18, 12, 13], [19, 13, 14], [20, 14, 15], [21, 15, 16]] # HIV 1
 
+# 3j3q connection
+ICOS_CNXN = [[5, 0, 6], [6, 1, 7], [7, 2, 8], [8, 3, 9], [13, 8, 9],
+             [11, 6, 12], [12, 7, 13], [13, 9, 14], [14, 9, 15], [15, 4, 10], [9, 4, 15],
+             [11, 5, 6], [12, 6, 7], [13, 7, 8], [15, 10, 16],
+             [17, 11, 12], [18, 12, 13], [19, 13, 14], [20, 14, 15], [21, 15, 16]] # HIV 1
+
+
 TETRA_CNXN = [[3, 0, 4], [4, 1, 5], [5, 2, 6], [4, 7, 5]]
 OCTA_CNXN = [[2, 0, 3], [5, 1, 2], [5, 2, 6], [6, 2, 3], [6, 3, 7], [3, 7, 4], [7, 4, 8], [9, 6, 7]]
 OCTA_CNXN_2 = [[4, 0, 5], [5, 1, 6], [6, 2, 7], [7, 3, 8], [4, 9, 5], [5, 10, 6], [6, 11, 7], [7, 12, 8]]
@@ -235,7 +242,8 @@ def graph_net(vertex_coords, struct_type):
     plt.scatter(x[:, 0], x[:, 1], s=2)
     plt.scatter(lattice[:, 0], lattice[:, 1], s=1, c="black", alpha=0.1)
 
-    colors = ['red', 'blue']
+    # colors = ['red', 'blue', 'red', 'blue']
+    colors = ['blue', 'blue', 'blue', 'blue']
     i = 0
     my_color_index = 0
 
@@ -770,21 +778,65 @@ move_set = PathSet()
 # distance = np.array([0, 4, 4])
 # #
 # #
-# ######################################### ICOS THINGS
-top_path = [np.array([1, 2, 0]),
-          np.array([1, 3, 0]),
-          np.array([2, 3, 0]),
-          np.array([2, 2, 0]),
-          np.array([2, 1, 0])]
-bottom_path = [np.array([1, 2, 0]),
-               np.array([2, 1, 0]),
-          np.array([2, 2, 0]),
-          np.array([2, 3, 0]),
-          np.array([1, 3, 0])]
+# # ######################################### ICOS THINGS
+# top_path = [np.array([1, 2, 0]),
+#           np.array([1, 3, 0]),
+#           np.array([2, 3, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 1, 0])]
+# bottom_path = [np.array([1, 2, 0]),
+#                np.array([2, 1, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 3, 0]),
+#           np.array([1, 3, 0])]
+# #
+
+# 2-fold elongated
+top_path = [np.array([1, 1, 0]),
+          np.array([0, 2, 0]),
+          np.array([1, 2, 0]),
+          np.array([2, 1, 0]),
+          np.array([1, 1, 0])]
+bottom_path = [np.array([1, 1, 0]),
+               np.array([1, 1, 0]),
+          np.array([2, 1, 0]),
+          np.array([1, 2, 0]),
+          np.array([0, 2, 0])]
+
+distance = np.array([0, 1, 1])
 #
-top_path = [np.array([1, 4, 0]),
-          np.array([3, 3, 0]),
-          np.array([4, 1, 0]),
+# # 3-fold elongated case
+# top_path = [np.array([1, 1, 0]),
+#           np.array([1, 1, 0]),
+#           np.array([1, 1, 0]),
+#           np.array([1, 2, 0]),
+#           np.array([1, 1, 0])]
+# bottom_path = [np.array([1, 1, 0]),
+#                np.array([1, 2, 0]),
+#           np.array([1, 1, 0]),
+#           np.array([1, 1, 0]),
+#           np.array([1, 1, 0])]
+#
+# distance = np.array([0, 1, 2])
+
+# 7-5 reflective case, no equilateral requirement
+# top_path = [np.array([1, 1, 0]),
+#           np.array([1, 2, 0]),
+#           np.array([1, 2, 0]),
+#           np.array([2, 1, 0]),
+#           np.array([2, 1, 0])]
+# bottom_path = [np.array([1, 1, 0]),
+#                np.array([1, 1, 0]),
+#           np.array([1, 1, 0]),
+#           np.array([3, 3, 0]),
+#           np.array([1, 1, 0])]
+#
+# distance = np.array([0, 1, 10])
+
+# 7-5 reflective case
+top_path = [np.array([1, 1, 0]),
+          np.array([1, 1, 0]),
+          np.array([6, 6, 0]),
           np.array([1, 1, 0]),
           np.array([1, 1, 0])]
 bottom_path = [np.array([2, 2, 0]),
@@ -792,21 +844,183 @@ bottom_path = [np.array([2, 2, 0]),
           np.array([2, 2, 0]),
           np.array([2, 2, 0]),
           np.array([2, 2, 0])]
-distance = np.array([0, 2, 2])
+
+distance = np.array([0, 1, 10])
+
+# # 7-5 reflective case shifted
+# top_path = [np.array([6, 6, 0]),
+#           np.array([1, 1, 0]),
+#           np.array([1, 1, 0]),
+#           np.array([1, 1, 0]),
+#           np.array([1, 1, 0])]
+# bottom_path = [np.array([2, 2, 0]),
+#                np.array([2, 2, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 2, 0])]
+#
+# distance = np.array([0, 2, 2])
+
+
+
+
+# 8-4
+# top_path = [np.array([1, 1, 0]),
+#           np.array([1, 1, 0]),
+#           np.array([2, 5, 0]),
+#           np.array([5, 2, 0]),
+#           np.array([1, 1, 0])]
+# bottom_path = [np.array([2, 2, 0]),
+#                np.array([2, 2, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 2, 0])]
+#
+# distance = np.array([0, 2, 5])
+
+# 9-3
+# top_path = [np.array([1, 4, 0]),
+#           np.array([3, 3, 0]),
+#           np.array([4, 1, 0]),
+#           np.array([1, 1, 0]),
+#           np.array([1, 1, 0])]
+# bottom_path = [np.array([2, 2, 0]),
+#                np.array([2, 2, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 2, 0])]
+
+# top_path = [np.array([3, 3, 0]),
+#           np.array([4, 1, 0]),
+#           np.array([1, 1, 0]),
+#           np.array([1, 1, 0]),
+#           np.array([1, 4, 0])]
+# bottom_path = [np.array([2, 2, 0]),
+#                np.array([2, 2, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 2, 0])]
+#
+# distance = np.array([0, 2, 2])
+
+# 10-2
+
+# top_path = [np.array([1, 3, 0]),
+#           np.array([2, 3, 0]),
+#           np.array([3, 2, 0]),
+#           np.array([3, 1, 0]),
+#           np.array([1, 1, 0])]
+# bottom_path = [np.array([2, 2, 0]),
+#                np.array([2, 2, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 2, 0])]
+#
+# distance = np.array([0, 2, 2])
+
+# top_path = [np.array([1, 1, 0]),
+#           np.array([1, 3, 0]),
+#           np.array([2, 3, 0]),
+#           np.array([3, 2, 0]),
+#           np.array([3, 1, 0])]
+# bottom_path = [np.array([2, 2, 0]),
+#                np.array([2, 2, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 2, 0]),
+#           np.array([2, 2, 0])]
+#
+# distance = np.array([0, 2, 3])
+
+# reflective symmetry counter ex (hypoth)
+# top_path = [np.array([3, 3, 0]),
+#           np.array([2, 1, 0]),
+#           np.array([3, 1, 0]),
+#           np.array([1, 3, 0]),
+#           np.array([1, 2, 0])]
+# bottom_path = [np.array([3, 3, 0]),
+#           np.array([2, 1, 0]),
+#           np.array([1, 3, 0]),
+#           np.array([3, 1, 0]),
+#           np.array([1, 2, 0])]
+#
+# distance = np.array([0, 0, 6])
+
+# # reflective symmetry ex
+# top_path = [np.array([3, 3, 0]),
+#           np.array([2, 1, 0]),
+#           np.array([3, 1, 0]),
+#           np.array([1, 3, 0]),
+#           np.array([1, 2, 0])]
+# bottom_path = [np.array([3, 1, 0]),
+#           np.array([1, 3, 0]),
+#           np.array([1, 2, 0]),
+#           np.array([3, 3, 0]),
+#           np.array([2, 1, 0])]
+#
+# distance = np.array([0, 1, 6])
+
+#
+# # 5-fold
+# top_path = [np.array([1, 1, 0]),
+#           np.array([1, 1, 0]),
+#           np.array([1, 1, 0]),
+#           np.array([1, 1, 0]),
+#           np.array([1, 1, 0])]
+# bottom_path = [np.array([1, 1, 0]),
+#           np.array([1, 1, 0]),
+#           np.array([1, 1, 0]),
+#           np.array([1, 1, 0]),
+#           np.array([1, 1, 0])]
+#
+# distance = np.array([0, 1, 3])
+
+# C=((0,5,0),(0,5,0),(3,2,0),(0,2,0),(3,7,0),(0,5,0))
+# d=(-4,2,0)
+# D=((3,5,0),(0,9,0),(1,2,0),(1,2,0),(1,3,0),(3,5,0))
+
+# # HIV
+top_path = [np.array([0, 5, 0]),
+          np.array([0, 5, 0]),
+          np.array([3, 2, 0]),
+          np.array([0, 2, 0]),
+          np.array([3, 7, 0])]
+bottom_path = [np.array([3, 5, 0]),
+          np.array([0, 9, 0]),
+          np.array([1, 2, 0]),
+          np.array([1, 2, 0]),
+          np.array([1, 3, 0])]
+distance = np.array([-4, 2, 0])
+
+# mattei 1
+# top_path = [np.array([0, 9, 5]),
+#           np.array([0, 10, 2]),
+#           np.array([0, 2, 0]),
+#           np.array([9, 4, 0]),
+#           np.array([0, 0, 5])]
+# bottom_path = [np.array([0, 11, 0]),
+#           np.array([0, 2, 10]),
+#           np.array([0, 2, 1]),
+#           np.array([0, 4, 1]),
+#           np.array([0, 3, 1])]
+# distance = np.array([0, 0, 2])
+
 move_set.upper_path = top_path
 move_set.lower_path = bottom_path
 move_set.distance_between = distance
 move_set.connection = ICOS_CNXN
-# #
-# # print("top_path is " + str(top_path))
-# # print("bottom_path is " + str(bottom_path))
+
+
+
 # # #
-# # # # Grabbing the net coordinates
+# # # print("top_path is " + str(top_path))
+# # # print("bottom_path is " + str(bottom_path))
+# # # #
+# # # # # Grabbing the net coordinates
 my_net = get_net(move_set, "icos_TPF")
-# move_set.assign_triangles(my_net)
-# move_set.assign_num_subunits()
-# # # print("number of subunits (via triangle sum) " + str(move_set.num_subunits))
-# # # # Graphing the coordinates
+move_set.assign_triangles(my_net)
+move_set.assign_num_subunits()
+print("number of subunits (via triangle sum) " + str(move_set.num_subunits))
+# # # Graphing the coordinates
 graph_net(my_net, "icos_TPF")
 #########################################
 
@@ -845,21 +1059,26 @@ graph_net(my_net, "icos_TPF")
 #########################################
 # Octa 2
 #########################################
-# c1 = np.array([2, 0, 0])
-# c2 = np.array([3, 0, 0])
-# c3 = np.array([4, 0, 0])
-# c4 = np.array([2, 0, -2])
-# # d1 = np.array([1, 5, 0])
-# df = c4 + lib.rotate_sixty(c4, -1) - c1 - lib.rotate_sixty(c1, 1) + c3 + \
-#      lib.rotate_sixty(c3, 1) + lib.rotate_sixty(c2, 1) - lib.rotate_sixty(c2, -1)
-# df = np.array([df[0] + df[2], df[1] - df[2], 0])
-# d1 = np.array([df[1], df[0] - df[1], 0])
-# top_path = [c1, c2, c3, c4
-#             ]
-# # d1 = np.array([1, 1, 0])
-# bottom_vec = d1
+c1 = np.array([1, 1, 0])
+c2 = np.array([2, 2, 0])
+c3 = np.array([3, 1, 0])
+c4 = np.array([2, 1, 0])
 #
-# # move_set = make_octa_2(top_path, bottom_vec)
+# # c1 = np.array([2, 0, 0])
+# # c2 = np.array([3, 0, 0])
+# # c3 = np.array([4, 0, 0])
+# # c4 = np.array([2, 0, -2])
+# # # d1 = np.array([1, 5, 0])
+df = c4 + lib.rotate_sixty(c4, -1) - c1 - lib.rotate_sixty(c1, 1) + c3 + \
+     lib.rotate_sixty(c3, 1) + lib.rotate_sixty(c2, 1) - lib.rotate_sixty(c2, -1)
+df = np.array([df[0] + df[2], df[1] - df[2], 0])
+d1 = np.array([df[1], df[0] - df[1], 0])
+top_path = [c1, c2, c3, c4
+            ]
+# d1 = np.array([1, 1, 0])
+bottom_vec = d1
+#
+move_set = make_octa_2(top_path, bottom_vec)
 #
 # f1 = lib.rotate_sixty(c1, 1) + lib.rotate_sixty(c2, -1)
 # f2 = lib.rotate_sixty(c2, 1) + lib.rotate_sixty(c3, -1)
@@ -872,9 +1091,9 @@ graph_net(my_net, "icos_TPF")
 #
 # print(move_set.lower_path)
 #
-# my_net = get_net(move_set, "octa_TPF_2")
-# move_set.assign_triangles(my_net)
-# move_set.assign_num_subunits()
+my_net = get_net(move_set, "octa_TPF_2")
+move_set.assign_triangles(my_net)
+move_set.assign_num_subunits()
 # print("number of subunits (via triangle sum) " + str(move_set.num_subunits))
 # # # Graphing the coordinates
 # graph_net(my_net, "octa_TPF_2")
