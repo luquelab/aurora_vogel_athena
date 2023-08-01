@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import my_library as lib
+import polyhedral_graph as edglib
 import openpyxl
 import solver as solv
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
@@ -12,7 +13,7 @@ from scipy.spatial import ConvexHull
 ICOS_CNXN = [[5, 0, 6], [6, 1, 7], [7, 2, 8], [8, 3, 9], [9, 4, 10],
              [12, 5, 6], [13, 6, 7], [14, 7, 8], [15, 8, 9], [16, 9, 10],
              [11, 5, 12], [12, 6, 13], [13, 7, 14], [14, 8, 15], [15, 9, 16],
-             [17, 11, 12], [18, 12, 13], [19, 13, 14], [20, 14, 15], [21, 15, 16]] # NORMAL 1
+             [17, 11, 12], [18, 12, 13], [19, 13, 14], [20, 14, 15], [21, 15, 16]]  # NORMAL 1
 # ICOS_CNXN = [[5, 0, 6], [6, 1, 7], [7, 2, 8], [8, 3, 14], [14, 3, 9],
 #              [11, 6, 12], [12, 7, 13], [13, 8, 14], [14, 9, 15], [16, 9, 10], [9, 4, 10],
 #              [11, 5, 6], [12, 6, 7], [13, 7, 8], [15, 9, 16],
@@ -22,7 +23,7 @@ ICOS_CNXN = [[5, 0, 6], [6, 1, 7], [7, 2, 8], [8, 3, 9], [9, 4, 10],
 ICOS_CNXN = [[5, 0, 6], [6, 1, 7], [7, 2, 8], [8, 3, 9], [13, 8, 9],
              [11, 6, 12], [12, 7, 13], [13, 9, 14], [14, 9, 15], [15, 4, 10], [9, 4, 15],
              [11, 5, 6], [12, 6, 7], [13, 7, 8], [15, 10, 16],
-             [17, 11, 12], [18, 12, 13], [19, 13, 14], [20, 14, 15], [21, 15, 16]] # HIV 1
+             [17, 11, 12], [18, 12, 13], [19, 13, 14], [20, 14, 15], [21, 15, 16]]  # HIV 1
 
 
 TETRA_CNXN = [[3, 0, 4], [4, 1, 5], [5, 2, 6], [4, 7, 5]]
@@ -35,17 +36,23 @@ CORNERS = []
 
 
 class PathSet:
-    def __init__(self, upper_path=[], lower_path=[], distance_between=0, connection=[], triangles=[], num_subunits=[]):
+    def __init__(self, upper_path=[], lower_path=[], distance_between=0, connection=[], connection_type=[], triangles=[], num_subunits=[], edge_data=[]):
         self.upper_path = upper_path
         self.lower_path = lower_path
         self.distance_between = distance_between
         self.connection = connection
+        self.connection_type = connection_type
         self.triangles = triangles
         self.num_subunits = num_subunits
+        self.edge_data = edge_data
 
     def assign_triangles(self, net):
         tris = []
-        for triangle in self.connection:
+        if self.connection_type == "edges":
+            cnxn = edglib.find_triangles(self.connection, as_list=True)
+        else:
+            cnxn = self.connection
+        for triangle in cnxn:
             v1 = lib.hex_to_cart(net[triangle[0]])
             v2 = lib.hex_to_cart(net[triangle[1]])
             v3 = lib.hex_to_cart(net[triangle[2]])
