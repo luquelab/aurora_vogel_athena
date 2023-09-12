@@ -4,9 +4,43 @@ import numpy as np
 
 
 class Triangle:
-    def __init__(self, vertices=[]):
+    def __init__(self, vertices=[], labels=()):
         self.vertices = vertices
+        self.labels = labels
         self.area = self.get_area()
+        self.sides = self.get_sides()
+
+    def get_label(self, verts):
+        vert_labels = []
+        for vert in verts:
+            for i in range(len(self.vertices)):
+                if self.vertices[i] == vert:
+                    vert_labels.append(self.labels[i])
+        return tuple(vert_labels)
+
+    def get_sides(self):
+        sides = {}
+        for vertex1 in self.vertices:
+            for vertex2 in self.vertices:
+                side = (vertex1, vertex2)
+                if side in sides.keys():
+                    pass
+                else:
+                    v1_cart = vertex1.get_cartesian()
+                    v2_cart = vertex2.get_cartesian()
+                    v1_cart = np.array((v1_cart.x, v1_cart.y))
+                    v2_cart = np.array((v2_cart.x, v2_cart.y))
+                    sides[side] = np.linalg.norm(v1_cart-v2_cart)
+        return sides
+
+    def get_angle(self, ang_verts):
+        if len(ang_verts) == 3:
+            a = self.sides[(ang_verts[0], ang_verts[1])]
+            b = self.sides[(ang_verts[1], ang_verts[2])]
+            c = self.sides[(ang_verts[0], ang_verts[2])]
+            return math.acos((-c**2+a**2+b**2)/(2*a*b))
+        else:
+            print("Did not provide a valid angle.")
 
     def get_area(self):
         if type(self.vertices[0]) == lib.HexagonalPoint:

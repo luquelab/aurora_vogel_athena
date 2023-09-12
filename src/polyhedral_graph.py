@@ -1,7 +1,8 @@
 
 
 class PolyhedralGraph:
-    def __init__(self, vertices=[], edges=[], faces=[], kind="geodesic"):
+    def __init__(self, vertices=[], edges=[], faces=[], filt=[], kind="geodesic"):
+        self.filt = filt
         if len(vertices) == 0:
             if type(edges[0]) == list:
                 vertex_set = set()
@@ -71,7 +72,7 @@ class PolyhedralGraph:
         for vertex in self.vertices:
             current_degree = 0
             for edge in self.edges:
-                if vertex in edge.vertices:
+                if vertex in edge.vertices and edge.vertices not in self.filt:
                     current_degree += 1
             degrees.append(current_degree)
         return degrees
@@ -185,8 +186,13 @@ def make_triangle(edge, edge_2):
 # pg = PolyhedralGraph(edges=[[0, 3], [0, 4], [1, 4], [1, 5], [2, 5], [2, 6], [3, 4], [4, 5], [5, 6],
 #                             [3, 7], [4, 7], [4, 8], [5, 8], [5, 9], [6, 9]])
 
+# filt1 = [[0, 5], [1, 6], [2, 7], [3, 8], [4, 9],
+#          [5, 11],
+#          [11, 17], [12, 18], [13, 19], [14, 20], [15, 21]]
+#
 # pgraph = PolyhedralGraph(edges=[[0, 5], [0, 6], [1, 6], [1, 7], [2, 7], [2, 8], [3, 8], [3, 9], [4, 9], [4, 10],
 #                                 [5, 6], [6, 7], [7, 8], [8, 9], [9, 10],
 #                                 [5, 11], [5, 12], [6, 12], [6, 13], [7, 13], [7, 14], [8, 14], [8, 15], [9, 15], [9, 16], [10, 16],
 #                                 [11, 12], [12, 13], [13, 14], [14, 15], [15, 16],
-#                                 [11, 17], [12, 17], [12, 18], [13, 18], [13, 19], [14, 19], [14, 20], [15, 20], [15, 21], [16, 21]])
+#                                 [11, 17], [12, 17], [12, 18], [13, 18], [13, 19], [14, 19], [14, 20], [15, 20], [15, 21], [16, 21]],
+#                          filt=filt1)
