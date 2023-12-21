@@ -25,6 +25,8 @@ The following is the basic structure of an example:
   get_stats (gives some basic stats of the unfolding using lumper)
   graph_unfolding (graphs the unfolding on hexagonal lattice)
 
+To get started, you can run the code in "potential_unfolding_creator.py" to visualize the last example not commented out.
+
 --------------------
 "triangle_paths.py"
 --------------------
