@@ -384,7 +384,9 @@ def cluster_analysis(unfolding: PotentialSpacedUnfolding, lumper: list, data=Fal
 
 
 
-
+####################################################################################################
+# Below is code ran for particular examples
+####################################################################################################
 
 
 ## Example 1 ##
