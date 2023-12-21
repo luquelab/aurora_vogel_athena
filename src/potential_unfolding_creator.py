@@ -167,7 +167,7 @@ def graph_unfolding(unfolding: PotentialSpacedUnfolding, export=False, path="", 
         face_poly = plt.Polygon(np.array([face_coordinates[0].get_numpy_cartesian(),
                                           face_coordinates[1].get_numpy_cartesian(),
                                           face_coordinates[2].get_numpy_cartesian()]),
-                                color=face_color, alpha=0.5)
+                                color=face_color, alpha=0.3)
         plt.gca().add_patch(face_poly)
 
     for hexagon in hexagons:
@@ -304,8 +304,8 @@ def brute_modularity_optim(G):
     for node in nodes:
         nodes_mod.append([node])
 
-    partitions = list(get_all_possible_partitions(nodes_mod, len(nodes_mod)))
-    # partitions = list(get_all_possible_partitions(nodes_mod, 1))
+    # partitions = list(get_all_possible_partitions(nodes_mod, len(nodes_mod)))
+    partitions = list(get_all_possible_partitions(nodes_mod, 1))
     # print("Number of partitions found: " + str(len(partitions)))
     best_mod_part = [set(nodes)]
     for part in partitions:
@@ -428,29 +428,49 @@ def cluster_analysis(unfolding: PotentialSpacedUnfolding, lumper: list, data=Fal
 #######################################################################################################################
 #######################################################################################################################
 ## PDB 3J3Y ##
-# filt1 = [[0, 5], [1, 6], [2, 7], [3, 8], [4, 9],
-#          [5, 11],
-#          [11, 17], [12, 18], [13, 19], [14, 20], [15, 21]]
+filt1 = [[0, 5], [1, 6], [2, 7], [3, 8], [4, 9],
+         [5, 11],
+         [11, 17], [12, 18], [13, 19], [14, 20], [15, 21]]
 # pgraph = pg.PolyhedralGraph(edges=[[0, 5], [0, 6], [1, 6], [1, 7], [2, 7], [2, 8], [3, 8], [3, 9], [4, 9], [4, 10],
 #                                    [0, 11], [1, 13], [7, 8], [8, 9], [9, 10], [9, 15], [10, 15],
 #                                    [5, 11], [6, 11], [6, 12], [6, 13], [7, 13], [7, 14], [8, 14], [8, 15], [10, 16],
 #                                    [11, 12], [12, 13], [13, 14], [14, 15], [10, 21],
 #                                    [11, 17], [12, 17], [12, 18], [13, 18], [13, 19], [14, 19], [14, 20], [15, 20], [15, 21], [16, 21]],
 #                             filt=filt1)
-# # paths and delta
-# top_vector_sequence = [np.array([4, 1, 0]),
+pgraph = pg.PolyhedralGraph(edges=[[0, 5], [0, 6], [1, 6], [1, 7], [2, 7], [2, 8], [3, 8], [3, 9], [4, 9], [4, 10],
+                                   [5, 6], [6, 7], [2, 13], [8, 15], [3, 15], [9, 15], [9, 10],
+                                   [5, 11], [5, 12], [6, 12], [7, 12], [7, 13], [8, 13], [8, 14], [9, 16], [10, 16],
+                                   [11, 12], [7, 18], [13, 14], [14, 15], [15, 16],
+                                   [11, 17], [12, 17], [12, 18], [13, 18], [13, 19], [14, 19], [14, 20], [15, 20], [15, 21], [16, 21]],
+                            filt=filt1)
+# # # paths and delta 1
+# # top_vector_sequence = [np.array([4, 1, 0]),
+# #           np.array([1, 7, 0]),
+# #           np.array([0, 6, 0]),
+# #           np.array([1, 3, 0]),
+# #           np.array([1, 4, 0]),
+# #           np.array([4, 1, 0])]
+# # bottom_vector_sequence = [np.array([1, 2, 0]),
+# #           np.array([1, 2, 0]),
+# #           np.array([1, 3, 0]),
+# #           np.array([5, 4, 0]),
+# #           np.array([0, 9, 1]),
+# #           np.array([1, 2, 0])]
+# # delta = lib.HexagonalPoint(h=-9, l=-1)
+# # paths and delta 2
+# top_vector_sequence = [np.array([1, 3, 0]),
+#           np.array([1, 4, 0]),
+#           np.array([4, 1, 0]),
 #           np.array([1, 7, 0]),
 #           np.array([0, 6, 0]),
-#           np.array([1, 3, 0]),
-#           np.array([1, 4, 0]),
-#           np.array([4, 1, 0])]
-# bottom_vector_sequence = [np.array([1, 2, 0]),
+#           np.array([1, 3, 0])]
+# bottom_vector_sequence = [np.array([5, 4, 0]),
+#           np.array([0, 9, 1]),
+#           np.array([1, 2, 0]),
 #           np.array([1, 2, 0]),
 #           np.array([1, 3, 0]),
-#           np.array([5, 4, 0]),
-#           np.array([0, 9, 1]),
-#           np.array([1, 2, 0])]
-# delta = lib.HexagonalPoint(h=-9, l=-1)
+#           np.array([5, 4, 0])]
+# delta = lib.HexagonalPoint(h=-2, l=3)
 #
 # upper_path_data = tpf.TrianglePathData(vector_sequence=top_vector_sequence)
 # lower_path_data = tpf.TrianglePathData(vector_sequence=bottom_vector_sequence, sigma=-1)
@@ -465,46 +485,130 @@ def cluster_analysis(unfolding: PotentialSpacedUnfolding, lumper: list, data=Fal
 # get_stats(unfolding.polyhedral_graph.get_degrees(), kind="degree list", lumper=lumper)
 # print(unfolding.get_total_subunits())
 # graph_unfolding(unfolding=unfolding)
-#
-#
-# # PDB 3J3Q
-# filt1 = [[0, 5], [1, 6], [2, 7], [3, 8], [4, 9],
-#          [5, 11],
-#          [11, 17], [12, 18], [13, 19], [14, 20], [15, 21]]
+
+## PDB 3J3Y ## ADJUSTED
+filt1 = [[0, 5], [1, 6], [2, 7], [3, 8], [4, 9],
+         [5, 11],
+         [11, 17], [12, 18], [13, 19], [14, 20], [15, 21]]
 # pgraph = pg.PolyhedralGraph(edges=[[0, 5], [0, 6], [1, 6], [1, 7], [2, 7], [2, 8], [3, 8], [3, 9], [4, 9], [4, 10],
-#                                    [5, 6], [6, 7], [7, 8], [8, 9], [4, 15], [9, 15], [10, 15],
-#                                    [5, 11], [5, 12], [6, 12], [7, 12], [7, 13], [8, 13], [9, 13], [9, 14], [10, 16],
-#                                    [11, 12], [12, 13], [13, 14], [14, 15], [15, 16],
+#                                    [0, 11], [1, 13], [7, 8], [8, 9], [9, 10], [9, 15], [10, 15],
+#                                    [5, 11], [6, 11], [6, 12], [6, 13], [7, 13], [7, 14], [8, 14], [8, 15], [10, 16],
+#                                    [11, 12], [12, 13], [13, 14], [14, 15], [10, 21],
 #                                    [11, 17], [12, 17], [12, 18], [13, 18], [13, 19], [14, 19], [14, 20], [15, 20], [15, 21], [16, 21]],
 #                             filt=filt1)
-# # paths and delta
-# top_vector_sequence = [np.array([0, 5, 0]),
-#           np.array([0, 5, 0]),
-#           np.array([3, 2, 0]),
-#           np.array([0, 2, 0]),
-#           np.array([3, 7, 0]),
-#           np.array([0, 5, 0])]
-# bottom_vector_sequence = [np.array([3, 5, 0]),
-#           np.array([0, 9, 0]),
+pgraph = pg.PolyhedralGraph(edges=[[0, 5], [0, 6], [1, 6], [1, 7], [2, 7], [2, 8], [3, 8], [3, 9], [4, 9], [4, 10],
+                                   [5, 6], [6, 7], [2, 13], [8, 15], [3, 15], [9, 15], [9, 10],
+                                   [5, 11], [5, 12], [6, 12], [7, 12], [7, 13], [8, 13], [8, 14], [9, 16], [10, 16],
+                                   [11, 12], [7, 18], [13, 14], [14, 15], [15, 16],
+                                   [11, 17], [12, 17], [12, 18], [13, 18], [13, 19], [14, 19], [14, 20], [15, 20], [15, 21], [16, 21]],
+                            filt=filt1)
+# # paths and delta 1
+# top_vector_sequence = [np.array([1, 3, 0]),
+#           np.array([1, 4, 0]),
+#           np.array([4, 1, 0]),
+#           np.array([1, 7, 0]),
+#           np.array([0, 6, 0]),
+#           np.array([1, 3, 0])]
+# bottom_vector_sequence = [np.array([5, 4, 0]),
+#           np.array([0, 9, 1]),
 #           np.array([1, 2, 0]),
 #           np.array([1, 2, 0]),
 #           np.array([1, 3, 0]),
-#           np.array([3, 5, 0])]
-# delta = lib.HexagonalPoint(h=-4, k=2)
+#           np.array([5, 4, 0])]
+# delta = lib.HexagonalPoint(h=-2, l=3)
+# # paths and delta ADJ 1
+top_vector_sequence = [np.array([1, 4, 0]),
+          np.array([1, 4, 0]),
+          np.array([4, 1, 0]),
+          np.array([1, 7, 0]),
+          np.array([0, 6, 0]),
+          np.array([1, 4, 0])]
+bottom_vector_sequence = [np.array([5, 5, 0]),
+          np.array([0, 9, 1]),
+          np.array([1, 2, 0]),
+          np.array([1, 2, 0]),
+          np.array([1, 3, 0]),
+          np.array([5, 5, 0])]
+delta = lib.HexagonalPoint(h=-4, k=2)
+# paths and delta ADJ 2
+filt1 = [[0, 5], [1, 6], [2, 7], [3, 8], [4, 9],
+         [5, 11],
+         [11, 17], [12, 18], [13, 19], [14, 20], [15, 21]]
+pgraph = pg.PolyhedralGraph(edges=[[0, 5], [0, 6], [1, 6], [1, 7], [2, 7], [2, 8], [3, 8], [3, 9], [4, 9], [4, 10],
+                                   [5, 6], [6, 7], [7, 8], [8, 9], [4, 15], [9, 15], [10, 15],
+                                   [5, 11], [6, 11], [6, 12], [7, 12], [7, 13], [8, 13], [9, 13], [9, 14], [10, 16],
+                                   [11, 12], [12, 13], [13, 14], [14, 15], [15, 16],
+                                   [11, 17], [12, 17], [12, 18], [13, 18], [13, 19], [14, 19], [14, 20], [15, 20], [15, 21], [16, 21]],
+                            filt=filt1)
+top_vector_sequence = [np.array([0, 5, 0]),
+          np.array([0, 4, 0]),
+          np.array([3, 2, 0]),
+          np.array([0, 3, 0]),
+          np.array([3, 7, 0]),
+          np.array([0, 5, 0])]
+bottom_vector_sequence = [np.array([3, 5, 0]),
+          np.array([0, 9, 0]),
+          np.array([1, 2, 0]),
+          np.array([1, 2, 0]),
+          np.array([1, 3, 0]),
+          np.array([3, 5, 0])]
+delta = lib.HexagonalPoint(h=-4, k=2)
+upper_path_data = tpf.TrianglePathData(vector_sequence=top_vector_sequence)
+lower_path_data = tpf.TrianglePathData(vector_sequence=bottom_vector_sequence, sigma=-1)
+# lumper
+lumper = [[0, 1, 2, 3, 4], [5, 5 + len(upper_path_data.face_triangles)], [-1, -2, -3, -4, -5], [-6, -6 - len(upper_path_data.face_triangles)]]
+# unfolding and its graph
+unfolding = PotentialSpacedUnfolding(upper_path_data=upper_path_data, lower_path_data=lower_path_data, delta=delta,
+                                     polyhedral_graph=pgraph)
+cluster_analysis(unfolding, lumper)
+get_stats(unfolding.get_edge_lengths())
+print(unfolding.polyhedral_graph.get_degrees())
+get_stats(unfolding.polyhedral_graph.get_degrees(), kind="degree list", lumper=lumper)
+print(unfolding.get_total_subunits())
+graph_unfolding(unfolding=unfolding)
+
+
 #
-# upper_path_data = tpf.TrianglePathData(vector_sequence=top_vector_sequence)
-# lower_path_data = tpf.TrianglePathData(vector_sequence=bottom_vector_sequence, sigma=-1)
-# # lumper
-# lumper = [[0, 1, 2, 3, 4], [5, 5 + len(upper_path_data.face_triangles)], [-1, -2, -3, -4, -5], [-6, -6 - len(upper_path_data.face_triangles)]]
-# # unfolding and its graph
-# unfolding = PotentialSpacedUnfolding(upper_path_data=upper_path_data, lower_path_data=lower_path_data, delta=delta,
-#                                      polyhedral_graph=pgraph)
-# cluster_analysis(unfolding, lumper)
-# get_stats(unfolding.get_edge_lengths())
-# print(unfolding.polyhedral_graph.get_degrees())
-# get_stats(unfolding.polyhedral_graph.get_degrees(), kind="degree list", lumper=lumper)
-# print(unfolding.get_total_subunits())
-# graph_unfolding(unfolding=unfolding)
+# # PDB 3J3Q
+filt1 = [[0, 5], [1, 6], [2, 7], [3, 8], [4, 9],
+         [5, 11],
+         [11, 17], [12, 18], [13, 19], [14, 20], [15, 21]]
+pgraph = pg.PolyhedralGraph(edges=[[0, 5], [0, 6], [1, 6], [1, 7], [2, 7], [2, 8], [3, 8], [3, 9], [4, 9], [4, 10],
+                                   [5, 6], [6, 7], [7, 8], [8, 9], [4, 15], [9, 15], [10, 15],
+                                   [5, 11], [5, 12], [6, 12], [7, 12], [7, 13], [8, 13], [9, 13], [9, 14], [10, 16],
+                                   [11, 12], [12, 13], [13, 14], [14, 15], [15, 16],
+                                   [11, 17], [12, 17], [12, 18], [13, 18], [13, 19], [14, 19], [14, 20], [15, 20], [15, 21], [16, 21]],
+                            filt=filt1)
+# paths and delta 1
+top_vector_sequence = [np.array([0, 5, 0]),
+          np.array([0, 5, 0]),
+          np.array([3, 2, 0]),
+          np.array([0, 2, 0]),
+          np.array([3, 7, 0]),
+          np.array([0, 5, 0])]
+bottom_vector_sequence = [np.array([3, 5, 0]),
+          np.array([0, 9, 0]),
+          np.array([1, 2, 0]),
+          np.array([1, 2, 0]),
+          np.array([1, 3, 0]),
+          np.array([3, 5, 0])]
+delta = lib.HexagonalPoint(h=-4, k=2)
+
+
+
+upper_path_data = tpf.TrianglePathData(vector_sequence=top_vector_sequence)
+lower_path_data = tpf.TrianglePathData(vector_sequence=bottom_vector_sequence, sigma=-1)
+# lumper
+lumper = [[0, 1, 2, 3, 4], [5, 5 + len(upper_path_data.face_triangles)], [-1, -2, -3, -4, -5], [-6, -6 - len(upper_path_data.face_triangles)]]
+# unfolding and its graph
+unfolding = PotentialSpacedUnfolding(upper_path_data=upper_path_data, lower_path_data=lower_path_data, delta=delta,
+                                     polyhedral_graph=pgraph)
+cluster_analysis(unfolding, lumper)
+get_stats(unfolding.get_edge_lengths())
+print(unfolding.polyhedral_graph.get_degrees())
+get_stats(unfolding.polyhedral_graph.get_degrees(), kind="degree list", lumper=lumper)
+print(unfolding.get_total_subunits())
+graph_unfolding(unfolding=unfolding)
 #
 #
 # ## HIV mattei et al 2016 struct 1_1 ##
